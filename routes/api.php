@@ -29,7 +29,8 @@ Route::controller(AuthController::class)->group(function(){
 
 Route::controller(ProductController::class)->group(function(){
         Route::get('get_products','get_products');
-        Route::get('get_product/{nameProduct}','get_product');
+        Route::get('get_product/{id}','get_product');
+        Route::get('get_related_products/{categoryId}/{currentProductId}','get_related_products');
 });
 
 Route::controller(CategoryController::class)->group(function(){
