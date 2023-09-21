@@ -2,12 +2,18 @@
 
 import axios from "axios";
 import {modifiedPrice} from "../../../compositions/helpers";
-import RelatedProduct from "./RelatedProduct.vue";
+import RelatedProduct from "../components/RelatedProduct.vue";
 import useCateogiries from "../../../compositions/categories";
 import {onMounted} from "vue";
 import useProducts from "../../../compositions/products";
+import Header from "../components/header.vue";
+import NavBar from "../components/NavBar.vue";
+import MobileSidebar from "../components/MobileSidebar.vue";
+import MobileMenubar from "../components/MobileMenubar.vue";
+import Footer from "../components/Footer.vue";
+import Copyright from "../components/Copyright.vue";
 export default {
-    components: {RelatedProduct},
+    components: {Copyright, Footer, MobileMenubar, MobileSidebar, NavBar, Header, RelatedProduct},
     methods: {modifiedPrice},
     props: {
         id: Number
@@ -35,19 +41,19 @@ export default {
 
 <template>
     <!-- header -->
-
+    <Header />
     <!-- header end -->
 
     <!-- navbar -->
-
+    <NavBar />
     <!-- navbar end -->
 
     <!-- mobile menubar -->
-
+    <MobileMenubar />
     <!-- mobile menu end -->
 
     <!-- mobile sidebar menu -->
-
+    <MobileSidebar />
     <!-- mobile sidebar menu end -->
 
     <!-- breadcrum -->
@@ -152,11 +158,11 @@ export default {
     <!-- related products end -->
 
     <!-- footer -->
-
+    <Footer />
     <!-- footer end -->
 
     <!-- copyright -->
-
+    <Copyright />
     <!-- copyright end -->
 </template>
 

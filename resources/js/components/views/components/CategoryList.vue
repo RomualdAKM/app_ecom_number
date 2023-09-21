@@ -26,7 +26,7 @@ export default {
 
 <template>
     <!-- categories -->
-    <div class="container pb-16">
+    <div class="container py-16">
         <h2 class="text-2xl md:text-3xl font-medium text-gray-800 uppercase mb-6">shop by category</h2>
         <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-3">
             <!-- single category -->

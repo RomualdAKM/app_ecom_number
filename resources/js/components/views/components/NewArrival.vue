@@ -32,7 +32,7 @@ export default {
     <div class="container pb-16">
         <h2 class="text-2xl md:text-3xl font-medium text-gray-800 uppercase mb-6">top new arrival</h2>
         <!-- product wrapper -->
-        <ProductWrapper :products="this.products.slice(0,4)" />
+        <ProductWrapper :products="this.products.slice(0,8)" />
     </div>
     <!-- top new arrival end -->
 </template>

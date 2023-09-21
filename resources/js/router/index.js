@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import index from '../components/views/index.vue'
 import notFound from '../components/notFound.vue'
 import ShowProduct from "../components/views/products/ShowProduct.vue";
-import RelatedProduct from "../components/views/products/RelatedProduct.vue";
+import RelatedProduct from "../components/views/components/RelatedProduct.vue";
 import CategoryProducts from "../components/views/categories/CategoryProducts.vue";
 
 const routes = [

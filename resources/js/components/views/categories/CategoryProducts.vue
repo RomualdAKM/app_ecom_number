@@ -1,15 +1,23 @@
 <script>
 import axios from "axios";
-import ProductWrapper from "../products/ProductWrapper.vue";
-import CategorySidebar from "./CategorySidebar.vue"
+import ProductWrapper from "../components/ProductWrapper.vue";
+import CategorySidebar from "../components/CategorySidebar.vue"
 import useCateogiries from "../../../compositions/categories";
 import {onMounted} from "vue";
+import Header from "../components/header.vue";
+import NavBar from "../components/NavBar.vue";
+import Footer from "../components/Footer.vue";
+import Copyright from "../components/Copyright.vue";
 
 export default {
     props: {
         name: String
     },
     components: {
+        Copyright,
+        Footer,
+        NavBar,
+        Header,
         ProductWrapper,
         CategorySidebar
     },
@@ -29,6 +37,10 @@ export default {
 </script>
 
 <template>
+    <Header />
+
+    <NavBar />
+
     <!-- breadcrum -->
     <div class="container py-4 flex justify-between">
         <div class="flex gap-3 items-center">
@@ -43,9 +55,9 @@ export default {
 
     <!-- shop wrapper -->
     <div class="container grid lg:grid-cols-4 gap-6 pt-4 pb-16 items-start relative">
-        <!-- sidebar -->
+        <!-- Category sidebar -->
         <CategorySidebar />
-        <!-- sidebar end -->
+        <!-- Category sidebar end -->
 
         <!-- products -->
         <div class="col-span-3">
@@ -81,6 +93,10 @@ export default {
         <!-- products end -->
     </div>
     <!-- shop wrapper end -->
+
+    <Footer />
+
+    <Copyright />
 </template>
 
 <style scoped>
