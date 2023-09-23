@@ -1,10 +1,10 @@
-<script>
+<script setup>
 
 import axios from "axios";
 import {modifiedPrice} from "../../../compositions/helpers";
 import RelatedProduct from "../components/RelatedProduct.vue";
 import useCateogiries from "../../../compositions/categories";
-import {onMounted} from "vue";
+import {onMounted, ref, watch} from "vue";
 import useProducts from "../../../compositions/products";
 import Header from "../components/header.vue";
 import NavBar from "../components/NavBar.vue";
@@ -12,31 +12,27 @@ import MobileSidebar from "../components/MobileSidebar.vue";
 import MobileMenubar from "../components/MobileMenubar.vue";
 import Footer from "../components/Footer.vue";
 import Copyright from "../components/Copyright.vue";
-export default {
-    components: {Copyright, Footer, MobileMenubar, MobileSidebar, NavBar, Header, RelatedProduct},
-    methods: {modifiedPrice},
-    props: {
-        id: Number
-    },
-    watch: {
-        '$route.params.id': {
-            handler(){
-                location.reload()
-            }
-        }
-    },
-    setup(props){
-        const { product, getProduct  } = useProducts();
+import {useRoute} from "vue-router";
 
-        onMounted(()=>{
-            getProduct(props.id);
-        })
+const route = useRoute()
+const name = ref(route.params.name)
 
-        return {
-            product
-        }
-    }
-}
+watch(route, async () => {
+    name.value = route.params.name;
+    getProduct(props.id);
+})
+
+const props = defineProps( {
+    id: Number
+});
+
+
+const { product, getProduct  } = useProducts();
+
+onMounted(() => {
+    getProduct(props.id);
+})
+
 </script>
 
 <template>
@@ -80,10 +76,6 @@ export default {
             <h2 class="md:text-3xl text-2xl font-medium uppercase mb-2">{{ product.name }}</h2>
 
             <div class="space-y-2">
-                <p class="text-gray-800 font-semibold space-x-2">
-                    <span>Availability: </span>
-                    <span class="text-green-600">In Stock</span>
-                </p>
                 <p class="space-x-2">
                     <span class="text-gray-800 font-semibold">Category: </span>
                     <span v-if="product.category" class="text-gray-600">{{ product.category.name }}</span>

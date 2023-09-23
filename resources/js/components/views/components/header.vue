@@ -15,10 +15,10 @@
                 </span>
                 <input type="text"
                        class="pl-12 w-full border border-r-0 border-primary py-3 px-3 rounded-l-md focus:ring-primary focus:border-primary"
-                       placeholder="search">
+                       placeholder="recherche">
                 <button type="submit"
                         class="bg-primary border border-primary text-white px-8 font-medium rounded-r-md hover:bg-transparent hover:text-primary transition">
-                    Search
+                    Recherche
                 </button>
             </div>
             <!-- searchbar end -->
@@ -31,7 +31,7 @@
                     <div class="text-2xl">
                         <i class="far fa-heart"></i>
                     </div>
-                    <div class="text-xs leading-3">Wish List</div>
+                    <div class="text-xs leading-3">Favoris</div>
                 </a>
                 <a href="cart.html"
                    class="lg:block text-center text-gray-700 hover:text-primary transition hidden relative">
@@ -40,13 +40,13 @@
                     <div class="text-2xl">
                         <i class="fas fa-shopping-bag"></i>
                     </div>
-                    <div class="text-xs leading-3">Cart</div>
+                    <div class="text-xs leading-3">Panier</div>
                 </a>
                 <a href="account.html" class="block text-center text-gray-700 hover:text-primary transition">
                     <div class="text-2xl">
                         <i class="far fa-user"></i>
                     </div>
-                    <div class="text-xs leading-3">Account</div>
+                    <div class="text-xs leading-3">Compte</div>
                 </a>
             </div>
             <!-- navicons end -->

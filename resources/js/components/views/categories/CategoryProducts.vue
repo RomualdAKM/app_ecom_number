@@ -1,39 +1,32 @@
-<script>
-import axios from "axios";
-import ProductWrapper from "../components/ProductWrapper.vue";
-import CategorySidebar from "../components/CategorySidebar.vue"
+<script setup>
 import useCateogiries from "../../../compositions/categories";
-import {onMounted} from "vue";
+import {onMounted, ref, watch} from "vue";
 import Header from "../components/header.vue";
 import NavBar from "../components/NavBar.vue";
+import CategorySidebar from "../components/CategorySidebar.vue";
+import ProductWrapper from "../components/ProductWrapper.vue";
 import Footer from "../components/Footer.vue";
 import Copyright from "../components/Copyright.vue";
+import {useRoute} from "vue-router";
 
-export default {
-    props: {
-        name: String
-    },
-    components: {
-        Copyright,
-        Footer,
-        NavBar,
-        Header,
-        ProductWrapper,
-        CategorySidebar
-    },
-    setup(props){
-        const { categoryProducts, getCategoryProducts  }= useCateogiries();
+const route = useRoute()
+const name = ref(route.params.name)
+const props = defineProps( {
+    name: String
+});
 
-        onMounted(()=>{
-            const categoryName = props.name
-            getCategoryProducts(categoryName);
-        })
+watch(route, async () => {
+    name.value = route.params.name;
+    getCategoryProducts(props.name);
+})
 
-        return {
-            categoryProducts
-        }
-    }
-}
+const { categoryProducts, getCategoryProducts  } = useCateogiries();
+
+onMounted(()=>{
+    const categoryName = props.name
+    getCategoryProducts(categoryName);
+})
+
 </script>
 
 <template>
@@ -87,7 +80,7 @@ export default {
             </div>
             <!-- sorting end -->
             <!-- product wrapper -->
-            <ProductWrapper :products="this.categoryProducts" />
+            <ProductWrapper :products="categoryProducts" />
             <!-- product wrapper end -->
         </div>
         <!-- products end -->

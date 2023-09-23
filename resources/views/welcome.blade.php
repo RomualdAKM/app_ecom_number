@@ -10,13 +10,13 @@
             crossorigin="anonymous" />
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="{{ asset('style.css')}}">
-		
+
         @vite('resources/css/app.css')
 
     </head>
     <body id="app">
 
-       
+
         @vite('resources/js/app.js')
          <!-- copyright end -->
     <script>

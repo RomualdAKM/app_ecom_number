@@ -1,10 +1,9 @@
-<script>
+<script setup>
 import {modifiedPrice} from "../../../compositions/helpers";
 
-export default {
-    methods: {modifiedPrice},
-    props:['products']
-}
+const props = defineProps({
+    products: Object
+})
 </script>
 
 <template>

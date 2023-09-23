@@ -1,4 +1,4 @@
-<script >
+<script setup>
 /**
  * Ce composant sera responsable de l'affichage des categories
  * récupérées depuis l' API
@@ -8,20 +8,10 @@ import axios from "axios";
 import {onMounted} from "vue";
 import useCateogiries from "../../../compositions/categories";
 
-export default {
-    setup(){
-        const { categories, getCategories } = useCateogiries();
-
-        onMounted( () =>{
-            getCategories()
-        } );
-
-        return {
-            categories
-        }
-    }
-}
-
+const { categories, getCategories } = useCateogiries();
+onMounted( () => {
+    getCategories()
+} );
 </script>
 
 <template>

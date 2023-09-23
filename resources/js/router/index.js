@@ -4,10 +4,14 @@ import notFound from '../components/notFound.vue'
 import ShowProduct from "../components/views/products/ShowProduct.vue";
 import RelatedProduct from "../components/views/components/RelatedProduct.vue";
 import CategoryProducts from "../components/views/categories/CategoryProducts.vue";
+import indexDashboard from "../components/views/dashboard/indexDashboard.vue";
+import create from "../components/views/dashboard/categories/CategoryCreate.vue";
+import indexCategorie from "../components/views/dashboard/categories/CategorieDashboard.vue";
 
 const routes = [
     {
         path: '/',
+        name: 'index',
         component: index
     },
 
@@ -23,6 +27,20 @@ const routes = [
         name: 'category-products',
         component: CategoryProducts,
         props: true
+    },
+
+    {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: indexDashboard,
+        props: true,
+        children:[
+            {
+                path: 'categories',
+                component: indexCategorie,
+                name: 'dashboard-categories'
+            }
+        ]
     },
 
     {

@@ -46,6 +46,4 @@ class ProductController extends Controller
             'relatedProducts' => $relatedProducts,
         ]);
     }
-
-    //public function get_pro
 }

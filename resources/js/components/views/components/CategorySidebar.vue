@@ -1,21 +1,13 @@
-<script>
+<script setup>
 import axios from "axios";
 import useCateogiries from "../../../compositions/categories";
 import {onMounted} from "vue";
 
-export default {
-    setup(){
-        const { categories, getCategories } = useCateogiries();
+const { categories, getCategories } = useCateogiries();
 
-        onMounted( () =>{
-            getCategories()
-        } );
-
-        return {
-            categories
-        }
-    }
-}
+onMounted( () =>{
+    getCategories()
+});
 </script>
 
 <template>
@@ -33,10 +25,16 @@ export default {
                 <div class="space-y-2">
                     <!-- single category -->
                     <div v-for="category in categories" :key="category.id" class="flex items-center">
-                        <input type="checkbox" id="Bedroom"
-                               class="text-primary focus:ring-0 rounded-sm cursor-pointer">
-                        <label for="Bedroom" class="text-gray-600 ml-3 cursor-pointer">{{ category.name }}</label>
-                        <div class="ml-auto text-gray-600 text-sm">(15)</div>
+                        <RouterLink
+                            :to="{name:'category-products', params: {name: category.name}}"
+                            class="ml-3 cursor-pointer"
+                            :class="{'bg-primary text-white rounded-lg px-2 py-1': category.name === this.$route.params.name}"
+                        >{{ category.name }}
+                        </RouterLink>
+
+                        <div class="ml-auto text-gray-600 text-sm" >
+                            <!-- afficher Le nombre de produits dans la catégorie -->
+                        </div>
                     </div>
                     <!-- single category end -->
                 </div>
