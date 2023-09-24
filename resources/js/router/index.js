@@ -1,11 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import index from '../components/views/index.vue'
+import login from '../components/views/pages/auth/login.vue'
+import register from '../components/views/pages/auth/register.vue'
 import notFound from '../components/notFound.vue'
 
 const routes = [
     {
         path: '/',
         component: index
+    },
+    {
+        path: '/login',
+        component: login
+    },
+    {
+        path: '/register',
+        component: register
     },
    
 

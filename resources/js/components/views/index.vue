@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container">
+    <div>
         
     <!-- header -->
     <header class="py-4 shadow-sm bg-pink-100 lg:bg-white">
