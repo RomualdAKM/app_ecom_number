@@ -1,7 +1,10 @@
 <template>
 
-    <h1>
+    <div class="container">
         <router-view></router-view>
-    </h1>
+    </div>
 
 </template>
+<script setup>
+
+</script>
