@@ -9,6 +9,7 @@ import CategoryProducts from "../components/views/categories/CategoryProducts.vu
 import indexDashboard from "../components/views/dashboard/indexDashboard.vue";
 import create from "../components/views/dashboard/categories/CategoryCreate.vue";
 import indexCategorie from "../components/views/dashboard/categories/CategorieDashboard.vue";
+import cart from "../components/views/components/Cart.vue"
 
 const routes = [
     {
@@ -20,9 +21,15 @@ const routes = [
         path: '/login',
         component: login
     },
+
     {
         path: '/register',
         component: register
+    },
+    
+    {
+        path: '/cart',
+        component: cart
     },
    
 
