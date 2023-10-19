@@ -31,9 +31,17 @@ Route::controller(ProductController::class)->group(function(){
         Route::get('get_products','get_products');
         Route::get('get_product/{id}','get_product');
         Route::get('get_related_products/{categoryId}/{currentProductId}','get_related_products');
+        Route::post('create_product','create_product');
+        Route::delete('delete_product/{id}','delete_product');
+        Route::put('update_product/{id}','update_product');
 });
 
 Route::controller(CategoryController::class)->group(function(){
         Route::get('get_categories','get_categories');
         Route::get('get_category_products/{nameCategory}','get_category_products');
+
+        Route::post('create_category','create_category');
+        Route::get('get_category/{categoryName}','get_category');
+        Route::put('update_category/{id}','update_category');
+        Route::delete('delete_category/{id}','delete_category');
 });

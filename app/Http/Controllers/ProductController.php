@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
+//use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Validator;
+
 
 /**
  * Récupérer les produits dans l'ordre du plus récent
@@ -13,7 +17,7 @@ class ProductController extends Controller
 {
     public function get_products(){
 
-        $products = Product::orderBy('created_at', 'desc')->get();
+        $products = Product::with('category')->orderBy('created_at', 'desc')->get();
         return response()->json([
             'products' => $products
         ]);
@@ -45,5 +49,91 @@ class ProductController extends Controller
         return response()->json([
             'relatedProducts' => $relatedProducts,
         ]);
+    }
+
+    /**
+     * @throws ValidationException
+     */
+    public function create_product(Request $request){
+        $validator = Validator::make ($request->all(),[
+            'name' => 'required',
+            'price' => 'required',
+            'category_id' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+            'hover_image' => 'required',
+        ]);
+
+        if ($validator->fails()){
+            return response()->json([
+                'error' => $validator->errors()->all()
+            ]);
+        }
+
+        $image = '';
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $file_image = time() . '.' . $img->getClientOriginalName();
+            $img->move(public_path('img'), $file_image);
+            $image = 'img/' . $file_image;
+        }
+        $file = '';
+        if ($request->hasFile('file')) {
+            $h_img = $request->file('file');
+            $f = time() . '.' . $h_img->getClientOriginalName();
+            $h_img->move(public_path('img'), $f);
+            $file = 'img/' . $f;
+        }
+
+        $product = new Product();
+        $product->image = $image;
+        $product->file = $file;
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->category_id = $request->category_id;
+        $product->save();
+    }
+
+    public function update_product(Request $request, $id){
+        $product = Product::findOrFail($id);
+
+        $this->validate(
+            $request,
+            [
+                'name' => 'required',
+                'price' => 'required',
+            ]
+        );
+
+        $image = '';
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $file_image = time() . '.' . $img->getClientOriginalName();
+            $img->move(public_path('img'), $file_image);
+            $image = 'img/' . $file_image;
+
+            $product->image = $image;
+        }
+        $file = '';
+        if ($request->hasFile('file')) {
+            $h_img = $request->file('file');
+            $f = time() . '.' . $h_img->getClientOriginalName();
+            $h_img->move(public_path('file'), $f);
+            $file = 'file/' . $f;
+
+            $product->file = $file;
+        }
+
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->category_id = $request->category_id;
+        $product->save();
+    }
+
+    public function delete_product($id){
+        $product = Product::findOrFail($id);
+        $product->delete();
     }
 }
