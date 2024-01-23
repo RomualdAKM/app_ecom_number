@@ -5,8 +5,64 @@ import MobileMenubar from "./MobileMenubar.vue"
 import MobileSidebar from "./MobileSidebar.vue"
 import Footer from "./Footer.vue"
 import { useShoppingStore } from './../../../stores/pinia.js'
+import {ref,onMounted,onBeforeUnmount} from 'vue'
+import {
+  openKkiapayWidget,
+  addKkiapayListener,
+  removeKkiapayListener,
+} from "kkiapay";
 
 const data = useShoppingStore();
+
+const successHandler = async () => {
+
+   // console.log('super')
+   await axios.post('/api/store_user_products', data.getCartItems).then((response) => {
+    if(response.data.success){
+
+                //router.push("/gestion-document/collaborateurs")
+
+                console.log('ok')
+                  toast.fire({
+                      icon: "success",
+                      title: " enregistrer avec success",
+                  });
+
+                }
+
+                 
+              else{
+                toast.fire({
+                      icon: "error",
+                      title: "Remplissez correctement tout les champs",
+                  });
+                console.log('errorr',response.data.message)
+                //errors.value = response.data.message
+              }
+      
+   })
+}
+const open = (price) => {
+    openKkiapayWidget({
+        amount: price,
+        api_key: "0afd57b0a3d911ee8180352af354e3f1",
+        sandbox: true,
+       phone: "61000000",
+      });
+}
+
+
+onMounted( async () => {
+
+    console.log('products',data.getCartItems)
+    
+   addKkiapayListener('success', successHandler);
+});
+
+onBeforeUnmount(() => {
+  removeKkiapayListener('success', successHandler);
+});
+  
 
 </script>
 
@@ -122,7 +178,6 @@ const data = useShoppingStore();
                 <h4>Total</h4>
                 <!-- <h4>{{ data.cartItems.reduce((acc,item) => acc += item.price,0) }}</h4> -->
                 <h4>{{ data.cartItems.reduce((acc, item) => acc + parseFloat(item.price), 0) }} F.CFA</h4>
-
             </div>
 
             <!-- searchbar -->
@@ -138,10 +193,10 @@ const data = useShoppingStore();
             <!-- searchbar end -->
 
             <!-- checkout -->
-            <a href="checkout.html" class="bg-primary border border-primary text-white px-4 py-3 font-medium rounded-md uppercase hover:bg-transparent
+            <button type="button" @click="open(data.cartItems.reduce((acc, item) => acc + parseFloat(item.price), 0))" class="bg-red-500 border border-primary text-white px-4 py-3 font-medium rounded-md uppercase hover:bg-transparent
              hover:text-primary transition text-sm w-full block text-center">
-                Process to checkout
-            </a>
+                Payez Maintenant
+            </button>
             <!-- checkout end -->
         </div>
         <!-- order summary end -->

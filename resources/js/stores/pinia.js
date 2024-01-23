@@ -39,7 +39,7 @@ export const useShoppingStore = defineStore('shopping', {
       this.cartItems = this.cartItems.filter(product => product.id !== item.id);
       Swal.fire({
         position: 'top-end',
-        icon: 'success',
+        icon: 'error',
         title: 'Your item has been removed',
         showConfirmButton: false,
         timer: 1500
