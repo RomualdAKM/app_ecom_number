@@ -33,7 +33,7 @@ class AuthController extends Controller
                 'message' => $validator->errors()
             ];
             return response()->json(
-                $response, 400
+                $response,400
             );
         }
 

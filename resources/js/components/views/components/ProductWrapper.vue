@@ -1,9 +1,14 @@
 <script setup>
 import {modifiedPrice} from "../../../compositions/helpers";
+import { useShoppingStore } from './../../../stores/pinia.js'
 
 const props = defineProps({
     products: Object
 })
+
+const data = useShoppingStore();
+
+
 </script>
 
 <template>
@@ -51,10 +56,10 @@ const props = defineProps({
             </div>
             <!-- product content end -->
             <!-- product button -->
-            <a href="#"
+            <button @click="data.addToCart(product)"
                class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
                 Add to Cart
-            </a>
+            </button>
             <!-- product button end -->
         </div>
         <!-- single product end -->

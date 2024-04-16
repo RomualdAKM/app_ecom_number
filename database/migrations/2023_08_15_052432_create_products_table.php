@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('image');
             $table->string('hover_image');
+            $table->string('file')->nullable();
             $table->string('name');
             $table->string('description');
             $table->string('price');
