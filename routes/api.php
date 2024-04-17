@@ -46,3 +46,5 @@ Route::controller(CategoryController::class)->group(function(){
         Route::put('update_category/{id}','update_category');
         Route::delete('delete_category/{id}','delete_category');
 });
+
+

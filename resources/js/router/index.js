@@ -5,9 +5,10 @@ import register from '../components/views/pages/auth/register.vue'
 import notFound from '../components/notFound.vue'
 import ShowProduct from "../components/views/products/ShowProduct.vue";
 import CategoryProducts from "../components/views/categories/CategoryProducts.vue";
-import indexDashboard from "../components/views/dashboard/DashboardIndex.vue";
+import dashboardIndex from "../components/views/dashboard/index.vue";
 import ProductIndex from "../components/views/dashboard/ProductIndex.vue";
 import CategoryIndex from "../components/views/dashboard/CategoryIndex.vue";
+import profil from "../components/views/dashboard/profil.vue";
 import cart from "../components/views/components/Cart.vue"
 
 const routes = [
@@ -36,7 +37,7 @@ const routes = [
             requiresAuth: false
         }
     },
-    
+
     {
         path: '/cart',
         name: 'cart',
@@ -45,7 +46,7 @@ const routes = [
             requiresAuth: true
         }
     },
-   
+
 
     // Routes pour afficher les détails d'un produit
     {
@@ -68,10 +69,11 @@ const routes = [
         }
     },
 
+    // Routes pour le dashboard
     {
         path: '/dashboard',
         name: 'dashboard',
-        component: indexDashboard,
+        component: dashboardIndex,
         props: true,
         children:[
             {
@@ -84,6 +86,12 @@ const routes = [
                 component: ProductIndex,
                 name: 'dashboard-products'
             },
+            {
+                path: 'profil',
+                component: profil,
+                name: 'dashboard-profil'
+            },
+
 
         ],
         meta: {
