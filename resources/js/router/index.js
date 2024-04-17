@@ -89,11 +89,14 @@ const routes = [
             {
                 path: 'profil',
                 component: profil,
-                name: 'dashboard-profil'
+                name: 'dashboard-profil',
+                meta: {
+                    requiresAuth: true
+                }
             },
 
 
-        ],
+        ]   ,
         meta: {
             requiresAuth: true
         }
