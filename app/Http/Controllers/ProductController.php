@@ -60,8 +60,8 @@ class ProductController extends Controller
             'price' => 'required',
             'category_id' => 'required',
             'description' => 'required',
-            'image' => 'required',
-            'hover_image' => 'required',
+            'file' => 'nullable|mimes:txt',
+            'hover_image' => 'required|mimes:png,jpg',
         ]);
 
         if ($validator->fails()){
@@ -70,12 +70,12 @@ class ProductController extends Controller
             ]);
         }
 
-        $image = '';
-        if ($request->hasFile('image')) {
-            $img = $request->file('image');
+        $hover_image = '';
+        if ($request->hasFile('hover_image')) {
+            $img = $request->file('hover_image');
             $file_image = time() . '.' . $img->getClientOriginalName();
             $img->move(public_path('img'), $file_image);
-            $image = 'img/' . $file_image;
+            $hover_image = 'img/' . $file_image;
         }
         $file = '';
         if ($request->hasFile('file')) {
@@ -86,7 +86,7 @@ class ProductController extends Controller
         }
 
         $product = new Product();
-        $product->image = $image;
+        $product->hover_image = $hover_image;
         $product->file = $file;
         $product->name = $request->name;
         $product->description = $request->description;
@@ -106,14 +106,14 @@ class ProductController extends Controller
             ]
         );
 
-        $image = '';
-        if ($request->hasFile('image')) {
-            $img = $request->file('image');
+        $hover_image = '';
+        if ($request->hasFile('hover_image')) {
+            $img = $request->file('hover_image');
             $file_image = time() . '.' . $img->getClientOriginalName();
             $img->move(public_path('img'), $file_image);
-            $image = 'img/' . $file_image;
+            $hover_image = 'img/' . $file_image;
 
-            $product->image = $image;
+            $product->hover_image = $hover_image;
         }
         $file = '';
         if ($request->hasFile('file')) {

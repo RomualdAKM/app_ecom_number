@@ -11,7 +11,7 @@ const form = ref({
   description: '',
   price: '',
 })
-const image = ref(null)
+const hover_image = ref(null)
 const file = ref(null)
 const product = ref([])
 
@@ -34,12 +34,12 @@ const getCategories = async () => {
   categories.value = response.data.categories
 }
 
-// get image and file name
+// get hover_image and file name
 const  onFile = (e) => {
   file.value = e.target.files[0]
 }
 const onImage = (e) => {
-  image.value = e.target.files[0]
+  hover_image.value = e.target.files[0]
 }
 
 // Stocker le produit
@@ -48,7 +48,7 @@ const createProduct = async () => {
   formData.append('name', form.value.name)
   formData.append('category_id', form.value.category_id)
   formData.append('description', form.value.description)
-  formData.append('image', image.value)
+  formData.append('hover_image', hover_image.value)
   formData.append('hover_image', file.value)
   formData.append('price', form.value.price)
 
@@ -73,8 +73,8 @@ const getProduct = async (id) => {
   let response = await axios.get('/api/get_product/'+id)
   product.value = response.data.product
   editMode.value = true
-  // Mettez à jour les références image et file à partir de form.value
-  image.value = product.value.image;
+  // Mettez à jour les références hover_image et file à partir de form.value
+  hover_image.value = product.value.hover_image;
   file.value = product.value.hover_image;
   toggleModal()
   form.value = product.value
@@ -82,14 +82,14 @@ const getProduct = async (id) => {
 
 const updateProduct = async () => {
 
-  // Vérifiez si un nouveau fichier image a été sélectionné
-  if (image.value) {
-    product.value.image = image.value;
+  // Vérifiez si un nouveau fichier hover_image a été sélectionné
+  if (hover_image.value) {
+    product.value.hover_image = hover_image.value;
   }
 
   // Vérifiez si un nouveau fichier hover_image a été sélectionné
   if (file.value) {
-    product.value.hover_image = file.value;
+    product.value.file = file.value;
   }
     await axios.put('/api/update_product/'+product.value.id, product.value).then((response) => {
         getProducts()
@@ -161,7 +161,7 @@ onMounted(() => {
                                 <td class="py-3 px-6 text-left ">
                                     <div class="flex items-center">
                                         <div class="mr-2">
-                                            <img class="w-12 h-12 rounded-full" :src="product.image" :alt="product.name"/>
+                                            <img class="w-12 h-12 rounded-full" :src="product.hover_image" :alt="product.name"/>
                                         </div>
                                         <span class="font-medium">{{ product.name }}</span>
                                     </div>
@@ -254,16 +254,16 @@ onMounted(() => {
 
                         <div class="grid sm:grid-cols-2 gap-4">
                             <div>
-                                <label for="image" class="text-gray-600 mb-2 block">
-                                    Image
+                                <label for="hover_image" class="text-gray-600 mb-2 block">
+                                    Image de fond
                                 </label>
-                                <input id="image" type="file" class="input-box" @change="onImage" >
+                                <input id="hover_image" type="file" class="input-box" @change="onImage" >
                             </div>
                           <div>
-                                <label for="hover_image" class="text-gray-600 mb-2 block">
+                                <label for="File" class="text-gray-600 mb-2 block">
                                     Fichier
                                 </label>
-                                <input id="hover_image" type="file" class="input-box" @change="onFile">
+                                <input id="file" type="file" class="input-box" @change="onFile">
                             </div>
                         </div>
 

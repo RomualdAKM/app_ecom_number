@@ -18,7 +18,7 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'image' => fake()->imageUrl(),
+            'file' => fake()->imageUrl(),
             'hover_image' => fake()->imageUrl(),
             'name' => fake()->name(),
             'description' => fake()->sentence(rand(9,13),true),

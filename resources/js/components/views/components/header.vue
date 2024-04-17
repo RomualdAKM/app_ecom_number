@@ -50,7 +50,7 @@ const data = useShoppingStore();
                         <i class="fas fa-shopping-bag"></i>
                     </div>
                     <div class="text-xs leading-3">Panier</div>
-                </a>
+                </router-link>
                 <router-link :to="{ name: 'dashboard',}" class="block text-center text-gray-700 hover:text-primary transition">
                     <div class="text-2xl">
                         <i class="far fa-user"></i>
