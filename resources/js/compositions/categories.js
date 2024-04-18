@@ -56,7 +56,7 @@ export default function useCateogiries(){
     }
 
     return {
-        categories,
+        //categories,
         getCategories,
 
         categoryProducts,

@@ -112,7 +112,7 @@
 
 import {onMounted, ref} from "vue";
 
-// définir le variable dynamiques réactives
+// définir les variables dynamiques réactives
 const authUser = ref([])
 const passwdForm = ref({
     password: '',

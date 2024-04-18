@@ -44,10 +44,10 @@ Route::controller(CategoryController::class)->group(function(){
         Route::get('get_categories','get_categories');
         Route::get('get_category_products/{nameCategory}','get_category_products');
 
-        Route::post('create_category','create_category');
-        Route::get('get_category/{categoryName}','get_category');
-        Route::put('update_category/{id}','update_category');
-        Route::delete('delete_category/{id}','delete_category');
+        Route::post('storeCategory','store');
+        Route::get('editCategory/{id}','edit');
+        Route::put('updateCategory/{id}','update');
+        Route::delete('destroyCategory/{id}','destroy');
 });
 
 

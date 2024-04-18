@@ -6,7 +6,7 @@ const props = defineProps({
     showModal: Boolean,
     toggleModal: Function,
     storeCategory: Function,
-    saveCategory: Function,
+    updateCategory: Function,
     getCategories: Function,
     category: ref([]),
     mode: ref(''),
@@ -44,7 +44,7 @@ const props = defineProps({
 
                     <!-- Boutons -->
                     <div class="flex justify-end">
-                        <button @click="props.mode === 'create' ? props.storeCategory() : props.saveCategory()"
+                        <button @click="props.mode === 'create' ? props.storeCategory() : props.updateCategory()"
                             type="button"
                             class="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
                         >
