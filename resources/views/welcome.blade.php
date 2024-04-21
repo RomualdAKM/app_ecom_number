@@ -11,13 +11,16 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="{{ asset('style.css')}}">
 
-        @vite('resources/css/app.css')
+            {{-- @vite('resources/css/app.css') --}}
+                <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     </head>
     <body id="app">
 
+        {{-- @vite('resources/js/app.js') --}}
 
-        @vite('resources/js/app.js')
+            <script src="{{ mix('js/app.js') }}"></script>
+
          <!-- copyright end -->
     <script>
         let menuBar = document.querySelector('#menuBar')

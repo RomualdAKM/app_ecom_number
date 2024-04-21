@@ -20,7 +20,7 @@ class AuthController extends Controller
         'number' => [
             'required',
             'unique:users',
-            'regex:/^\+[0-9]{10,15}$/',
+            // 'regex:/^\+[0-9]{10,15}$/',
         ],
         'sex' => 'required',
         'password' => 'required',
@@ -33,7 +33,7 @@ class AuthController extends Controller
                 'message' => $validator->errors()
             ];
             return response()->json(
-                $response, 400
+                $response,400
             );
         }
 

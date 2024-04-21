@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import index from '../components/views/index.vue'
+import login from '../components/views/pages/auth/login.vue'
+import register from '../components/views/pages/auth/register.vue'
 import notFound from '../components/notFound.vue'
 import ShowProduct from "../components/views/products/ShowProduct.vue";
 import RelatedProduct from "../components/views/components/RelatedProduct.vue";
@@ -7,26 +9,64 @@ import CategoryProducts from "../components/views/categories/CategoryProducts.vu
 import indexDashboard from "../components/views/dashboard/indexDashboard.vue";
 import create from "../components/views/dashboard/categories/CategoryCreate.vue";
 import indexCategorie from "../components/views/dashboard/categories/CategorieDashboard.vue";
+import cart from "../components/views/components/Cart.vue"
 
 const routes = [
     {
         path: '/',
         name: 'index',
-        component: index
+        component: index,
+        meta: {
+            requiresAuth: false
+        }
     },
+    {
+        path: '/login',
+        name: 'login',
+        component: login,
+        meta: {
+            requiresAuth: false
+        }
+    },
+
+    {
+        path: '/register',
+        name: 'register',
+        component: register,
+        meta: {
+            requiresAuth: false
+        }
+    },
+    
+    {
+        path: '/cart',
+        name: 'cart',
+        component: cart,
+        meta: {
+            requiresAuth: true
+        }
+    },
+   
 
     // Routes pour afficher les détails d'un produit
     {
         path: '/product/:id',
+        name: 'product',
         component: ShowProduct,
-        props: true
+        props: true,
+        meta: {
+            requiresAuth: false
+        }
     },
 
     {
         path: '/category-products/:name',
         name: 'category-products',
         component: CategoryProducts,
-        props: true
+        props: true,
+        meta: {
+            requiresAuth: false
+        }
     },
 
     {
@@ -40,7 +80,10 @@ const routes = [
                 component: indexCategorie,
                 name: 'dashboard-categories'
             }
-        ]
+        ],
+        meta: {
+            requiresAuth: true
+        }
     },
 
     {
@@ -55,5 +98,16 @@ const router = createRouter({
     routes,
 
 })
+
+router.beforeEach((to,from) =>{
+    if(to.meta.requiresAuth && !localStorage.getItem('token')){
+        return { name: 'login' }
+    }
+
+    // if(to.meta.requiresAuth == false && localStorage.getItem('token')){
+    //     return { name: 'index' }
+    // }
+})
+
 
 export default router
