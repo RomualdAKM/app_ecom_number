@@ -34,11 +34,9 @@ import Copyright from "../components/Copyright.vue";
         <!-- sidebar end -->
 
         <!-- dashboard content -->
-        <div class="col-span-9 grid md:grid-cols-3 gap-4 mt-6 lg:mt-0">
             <router-view>
 
             </router-view>
-        </div>
         <!-- dashboard content end -->
     </div>
     <!-- dashboard wrapper end -->

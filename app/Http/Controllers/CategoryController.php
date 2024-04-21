@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Dotenv\Validator;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 class CategoryController extends Controller
 {
     public function get_categories(){
 
-        $categories = Category::all();
+        $categories = Category::latest()->get();
 
         return response()->json([
 
@@ -29,61 +29,57 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function create_category(Request $request){
-        $validator = Validator::make($request->all(),[
-            'name' => 'required|unique'
+    public function store(Request $request){
+        $request->validate([
+            'name' => 'required|unique:categories'
         ]);
-
-        if ($validator->fails()){
-            return response()->json([
-                'error' => $validator->errors()->all()
-            ]);
-        }
 
         $category = new Category([
             'name' => $request->input('name')
         ]);
-
         $category->save();
 
         return response()->json([
             'success' => 'Catégorie enregistrée avec succès.'
-        ]);
+        ],200);
     }
 
-    public function edit_category($nameCategory){
-        $category = Category::findOrFail($nameCategory);
+    public function edit($id){
+        $category = Category::findOrFail($id);
 
         return response()->json([
             'category' => $category
         ]);
     }
 
-    public function update_category(Request $request, $id){
-        $validator = Validator::make($request->all(),[
-            'name' => 'required|unique'
+    public function update(Request $request,  $id){
+        $request->validate([
+            'name' => 'required|unique:categories,name,'.$id
         ]);
 
-        if ($validator->fails()){
-            return response()->json([
-                'error' => $validator->errors()->all()
-            ]);
-        }
-
-        $category = Category::find($id);
+        $category = Category::findOrFail($id);
         $category->name = $request->input('name');
-        $category->save();
+        $category->update();
 
         return response()->json([
             'success' => 'Mise à jour effectuée avec succès.'
-        ]);
+        ],200);
     }
 
-    public function delete_category(Category $category){
-        $category->delete();
+    public function destroy($id){
+        $category = Category::findOrFail($id);
+
+        try {
+            $category->delete();
+        } catch (\Exception $e) {
+            Log::error('Erreur lors de la suppression de la catégorie : ' . $e->getMessage());
+            return response()->json([
+                'error' => 'Vous ne pouvez pas supprimez cette catégorie.'
+            ],500);
+        }
 
         return response()->json([
-           'success' => 'Suppression effectuée avec succès.'
-        ]);
+            'success' => 'Catégorie supprimée avec succès.'
+        ],200);
     }
 }

@@ -11,8 +11,9 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="{{ asset('style.css')}}">
 
-            {{-- @vite('resources/css/app.css') --}}
-                <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        {{-- @vite('resources/css/app.css') --}}
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.4/css/dataTables.tailwindcss.css">
 
     </head>
     <body id="app">
@@ -22,7 +23,15 @@
             <script src="{{ mix('js/app.js') }}"></script>
 
          <!-- copyright end -->
+
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://cdn.datatables.net/2.0.4/js/dataTables.js"></script>
+        <script src="https://cdn.datatables.net/2.0.4/js/dataTables.tailwindcss.js"></script>
     <script>
+        /*// initialiser datatable
+        $(document).ready(function() {
+            $('#dataTable').DataTable();
+        });*/
         let menuBar = document.querySelector('#menuBar')
         let mobileMenu = document.querySelector('#mobileMenu')
         let closeMenu = document.querySelector('#closeMenu')

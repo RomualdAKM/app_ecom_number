@@ -25,6 +25,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::controller(AuthController::class)->group(function(){
     Route::post('register','register');
     Route::post('login','login');
+    Route::get('getAuthUser','getAuthUser');
+    Route::put('updateProfil/{user}','updateProfil');
+    Route::put('changePasswd/{user}','changePasswd');
 });
 
 Route::controller(ProductController::class)->group(function(){
@@ -32,9 +35,19 @@ Route::controller(ProductController::class)->group(function(){
         Route::get('get_product/{id}','get_product');
         Route::get('get_related_products/{categoryId}/{currentProductId}','get_related_products');
         Route::post('store_user_products','store_user_products');
+        Route::post('create_product','create_product');
+        Route::delete('delete_product/{id}','delete_product');
+        Route::put('update_product/{id}','update_product');
 });
 
 Route::controller(CategoryController::class)->group(function(){
         Route::get('get_categories','get_categories');
         Route::get('get_category_products/{nameCategory}','get_category_products');
+
+        Route::post('storeCategory','store');
+        Route::get('editCategory/{id}','edit');
+        Route::put('updateCategory/{id}','update');
+        Route::delete('destroyCategory/{id}','destroy');
 });
+
+
