@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('percentage')->nullable();
+            $table->string('full_name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamps();
         });
     }

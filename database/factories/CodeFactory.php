@@ -17,8 +17,11 @@ class CodeFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->userName,
-            'percentage' => $this->faker->numberBetween(10, 90),
+            'name' => $this->faker->unique()->userName,
+            'percentage' => $this->faker->numberBetween(1, 90),
+            'full_name' => $this->faker->unique()->name,
+            'email' => $this->faker->unique()->safeEmail,
+            'phone' => $this->faker->unique()->phoneNumber,
 
         ];
     }
