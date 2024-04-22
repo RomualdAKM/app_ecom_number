@@ -7,6 +7,7 @@ import MobileMenubar from './MobileMenubar.vue';
 import MobileSidebar from './MobileSidebar.vue';
 import Footer from './Footer.vue';
 import { openKkiapayWidget, addKkiapayListener, removeKkiapayListener } from 'kkiapay';
+import axios from 'axios';
 
 // Store and reference variables
 const data = useShoppingStore();
@@ -18,18 +19,29 @@ const showCodePromoSection = ref(true);
 // Success handler for payment
 const successHandler = async () => {
   try {
-    const response = await axios.post('/api/store_user_products', data.getCartItems);
+    // Créer la charge utile avec les produits du panier
+    const payload = {
+      items: data.getCartItems,
+      total: cartTotal.value,
+    };
+
+    // Inclure le code promo s'il n'est pas vide
+    if (formCode.value.trim() !== '') {
+      payload.promoCode = formCode.value;
+    }
+
+    // Envoyer la requête
+    const response = await axios.post('/api/store_user_products', payload);
     const success = response.data.success;
     const message = response.data.message;
 
     if (success) {
       toast.fire({ icon: 'success', title: 'Enregistré avec succès' });
-      console.log('ok');
     } else {
       toast.fire({ icon: 'error', title: 'Erreur: ' + message });
     }
   } catch (error) {
-    console.error('Erreur lors de l\'enregistrement', error);
+    console.error("Erreur lors de l'enregistrement", error);
   }
 };
 

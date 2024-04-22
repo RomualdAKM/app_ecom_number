@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Code;
+use App\Models\Sale;
+use App\Models\User;
+//use Illuminate\Validation\Validator;
+use App\Mail\SaleMail;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
-//use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 
 /**
@@ -135,5 +141,44 @@ class ProductController extends Controller
     public function delete_product($id){
         $product = Product::findOrFail($id);
         $product->delete();
+    }
+
+    public function store_user_products(Request $request){
+
+        //dd($request->all());
+
+        if($request->promoCode != null){
+
+            $code = Code::where('name', '=', $request->promoCode)->first();
+            
+            $sale = new Sale();
+            $sale->total = $request->total;
+            $sale->user_id = Auth::user()->id;
+            $sale->code_id = $code->id;
+            $sale->save();
+
+            Mail::to($code->email)->send(new SaleMail($code->full_name,$request->total,$code->code,$code->percentage));
+
+        }else{
+
+            $sale = new Sale();
+            $sale->total = $request->total;
+            $sale->user_id = Auth::user()->id;
+            $sale->save();
+        }
+
+
+       $user = User::find(Auth::user()->id);
+
+
+        foreach ($request->items as $value) {  
+
+           // dd($value);
+
+            $product = Product::find($value['id']);
+         
+            $user->products()->attach($product);           
+
+        }
     }
 }
