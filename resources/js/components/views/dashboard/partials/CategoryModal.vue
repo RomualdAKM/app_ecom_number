@@ -12,6 +12,7 @@ const props = defineProps({
     mode: ref(''),
     form: ref({})
 });
+
 </script>
 
 <template>

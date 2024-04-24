@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CodeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 
@@ -49,6 +50,10 @@ Route::controller(CategoryController::class)->group(function(){
         Route::get('editCategory/{id}','edit');
         Route::put('updateCategory/{id}','update');
         Route::delete('destroyCategory/{id}','destroy');
+});
+Route::controller(CodeController::class)->group(function(){
+        Route::get('get_codes','get_codes');
+       
 });
 
 
