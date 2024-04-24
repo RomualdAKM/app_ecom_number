@@ -37,7 +37,7 @@
             <div class="space-y-1 pl-8">
                 <router-link :to="{name: 'dashboard-categories'}"
                    class="relative text-base font-medium capitalize hover:text-primary transition block">
-                    Categories
+                    Catégories
                     <span class="absolute -left-8 top-0 text-base">
                         <i class="fas fa-list"></i>
                     </span>
@@ -49,7 +49,7 @@
             <div class="space-y-1 pl-8 pt-4">
                 <router-link :to="{name:'dashboard-products'}"
                    class="relative medium capitalize text-gray-800 font-medium hover:text-primary transition block">
-                    Manage products
+                    Produits
                     <span class="absolute -left-8 top-0 text-base">
                             <i class="fas fa-box"></i>
                     </span>
