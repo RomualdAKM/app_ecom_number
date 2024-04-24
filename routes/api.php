@@ -52,8 +52,12 @@ Route::controller(CategoryController::class)->group(function(){
         Route::delete('destroyCategory/{id}','destroy');
 });
 Route::controller(CodeController::class)->group(function(){
-        Route::get('get_codes','get_codes');
-       
+    Route::get('get_codes','get_codes');
+    Route::post('storeCode','store');
+    Route::get('editCode/{id}','edit');
+    Route::put('updateCode/{id}','update');
+    Route::delete('destroyCode/{id}','destroy');
+
 });
 
 

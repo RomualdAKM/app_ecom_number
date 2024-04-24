@@ -10,6 +10,8 @@ import ProductIndex from "../components/views/dashboard/ProductIndex.vue";
 import CategoryIndex from "../components/views/dashboard/CategoryIndex.vue";
 import profil from "../components/views/dashboard/profil.vue";
 import cart from "../components/views/components/Cart.vue"
+import code from "../components/views/dashboard/code.vue";
+// import code from "@/components/views/dashboard/code.vue";
 
 const routes = [
     {
@@ -90,6 +92,14 @@ const routes = [
                 path: 'profil',
                 component: profil,
                 name: 'dashboard-profil',
+                meta: {
+                    requiresAuth: true
+                }
+            },
+            {
+                path: 'code',
+                component: code,
+                name: 'dashboard-code',
                 meta: {
                     requiresAuth: true
                 }
