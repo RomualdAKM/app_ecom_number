@@ -11,8 +11,11 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
+//use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Validator;
 
 
 /**
@@ -60,87 +63,116 @@ class ProductController extends Controller
     /**
      * @throws ValidationException
      */
-    public function create_product(Request $request){
-        $validator = Validator::make ($request->all(),[
-            'name' => 'required',
+    public function store(Request $request){
+        //dd($request->all());
+        $request->validate([
+            'name' => 'required|string',
             'price' => 'required',
-            'category_id' => 'required',
+            'category_id' => 'required|integer|exists:categories,id',
             'description' => 'required',
             'file' => 'nullable|mimes:txt',
-            'hover_image' => 'required|mimes:png,jpg',
+            'hover_image' => 'required|mimes:png,jpg,jpeg',
         ]);
 
-        if ($validator->fails()){
+        try {
+            $product = new Product();
+            $product->name = $request->name;
+            $product->description = $request->description;
+            $product->price = $request->price;
+            $product->category_id = $request->category_id;
+
+            //upload de hover_image
+            if ($request->hasFile('hover_image')) {
+                $hoverImage = $request->file('hover_image');
+                $hoverImageName= time() . '_' . $hoverImage->getClientOriginalName();
+                $hoverImagePath = $hoverImage->storeAs('uploads/hoverImages', $hoverImageName, 'public');
+                $product->hover_image = $hoverImagePath;
+            }
+
+            // upload de file
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+                $fileName= time() . '_' . $file->getClientOriginalName();
+                $filePath = $file->storeAs('uploads/files', $fileName, 'public');
+                $product->file = $filePath;
+            }
+
+
+            $product->save();
+
             return response()->json([
-                'error' => $validator->errors()->all()
-            ]);
+                'success' => 'Produit ajouté avec succès.'
+            ],200);
+        } catch (\Throwable $th){
+            Log::error('Store Product error : '. $th->getMessage());
+            return response()->json([
+                'error' => 'Une erreur s\'est produite , réessayer.'
+            ],500);
         }
-
-        $hover_image = '';
-        if ($request->hasFile('hover_image')) {
-            $img = $request->file('hover_image');
-            $file_image = time() . '.' . $img->getClientOriginalName();
-            $img->move(public_path('img'), $file_image);
-            $hover_image = 'img/' . $file_image;
-        }
-        $file = '';
-        if ($request->hasFile('file')) {
-            $h_img = $request->file('file');
-            $f = time() . '.' . $h_img->getClientOriginalName();
-            $h_img->move(public_path('img'), $f);
-            $file = 'img/' . $f;
-        }
-
-        $product = new Product();
-        $product->hover_image = $hover_image;
-        $product->file = $file;
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->price = $request->price;
-        $product->category_id = $request->category_id;
-        $product->save();
     }
 
-    public function update_product(Request $request, $id){
+    public function update(Request $request, $id){
         $product = Product::findOrFail($id);
 
-        $this->validate(
-            $request,
-            [
-                'name' => 'required',
-                'price' => 'required',
-            ]
-        );
+        $request->validate([
+            'name' => 'required|string',
+            'price' => 'required',
+            'category_id' => 'required|integer|exists:categories,id',
+            'description' => 'required',
+            'file' => 'nullable|mimes:txt',
+            'hover_image' => 'nullable|mimes:png,jpg,jpeg',
+        ]);
 
-        $hover_image = '';
-        if ($request->hasFile('hover_image')) {
-            $img = $request->file('hover_image');
-            $file_image = time() . '.' . $img->getClientOriginalName();
-            $img->move(public_path('img'), $file_image);
-            $hover_image = 'img/' . $file_image;
+        try {
+            $product->name = $request->name;
+            $product->price = $request->price;
+            $product->category_id = $request->category_id;
+            $product->description = $request->description;
 
-            $product->hover_image = $hover_image;
+            if ($request->hasFile('hover_image')) {
+                Storage::disk('public')->delete($product->hover_image);
+                $hoverImage = $request->file('hover_image');
+                $hoverImageName= time() . '_' . $hoverImage->getClientOriginalName();
+                $hoverImagePath = $hoverImage->storeAs('uploads/hoverImages', $hoverImageName, 'public');
+                $product->hover_image = $hoverImagePath;
+            }
+
+            // update file
+            if ($request->hasFile('file')) {
+                Storage::disk('public')->delete($product->file);
+                $file = $request->file('file');
+                $fileName= time() . '_' . $file->getClientOriginalName();
+                $filePath = $file->storeAs('uploads/files', $fileName, 'public');
+                $product->file = $filePath;
+            }
+
+            $product->save();
+
+            return response()->json([
+                'success' => 'Produit modifié avec succès.'
+            ],200);
+        } catch (\Throwable $th){
+            Log::error('Update Product error : '. $th->getMessage());
+            return response()->json([
+                'error' => 'Une erreur s\'est produite , réessayer.'
+            ],500);
         }
-        $file = '';
-        if ($request->hasFile('file')) {
-            $h_img = $request->file('file');
-            $f = time() . '.' . $h_img->getClientOriginalName();
-            $h_img->move(public_path('file'), $f);
-            $file = 'file/' . $f;
-
-            $product->file = $file;
-        }
-
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->price = $request->price;
-        $product->category_id = $request->category_id;
-        $product->save();
     }
 
-    public function delete_product($id){
-        $product = Product::findOrFail($id);
-        $product->delete();
+    public function destroy($id){
+        try {
+            $product = Product::findOrFail($id);
+            $product->delete();
+
+            return response()->json([
+                'success' => 'Produit supprimé avec succès.'
+            ],200);
+        } catch (\Throwable $th){
+            Log::error('Delete Product error : '. $th->getMessage());
+            return response()->json([
+                'error' => 'Une erreur s\'est produite , réessayer.'
+            ],500);
+        }
     }
 
     public function store_user_products(Request $request){
@@ -150,7 +182,7 @@ class ProductController extends Controller
         if($request->promoCode != null){
 
             $code = Code::where('name', '=', $request->promoCode)->first();
-            
+
             $sale = new Sale();
             $sale->total = $request->total;
             $sale->user_id = Auth::user()->id;
@@ -171,13 +203,13 @@ class ProductController extends Controller
        $user = User::find(Auth::user()->id);
 
 
-        foreach ($request->items as $value) {  
+        foreach ($request->items as $value) {
 
            // dd($value);
 
             $product = Product::find($value['id']);
-         
-            $user->products()->attach($product);           
+
+            $user->products()->attach($product);
 
         }
     }

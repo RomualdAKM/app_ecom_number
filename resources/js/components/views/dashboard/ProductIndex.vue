@@ -42,10 +42,15 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                 </svg>
                             </div>
+<!--                            show action-->
                             <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                <svg @click="deleteProduct(product.id)" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                </svg>
+                                <router-link :to="'/product/' + product.id" title="Détails du produit" >
+                                    <i class="fas fa-eye"></i>
+                                </router-link>
+                            </div>
+
+                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                                <i @click="deleteProduct(product.id)" class="fas fa-trash" title="Supprimer le produit"></i>
                             </div>
                         </div>
                     </td>
@@ -71,6 +76,7 @@
 
                 <!-- PRODUCT FORM -->
                 <form>
+                    <input type="hidden" name="_token" :value="csrf">
                     <div class="space-y-4">
                         <!-- Form row -->
                         <div class="grid sm:grid-cols-2 gap-4">
@@ -117,20 +123,20 @@
                                 <label for="hover_image" class="text-gray-600 mb-2 block">
                                     Image de fond
                                 </label>
-                                <input id="hover_image" type="file" class="input-box" @change="onImage" >
+                                <input id="hover_image" type="file" class="input-box" ref="hover_image" @change="onImage" >
                             </div>
                           <div>
                                 <label for="File" class="text-gray-600 mb-2 block">
-                                    Fichier
+                                    Fichier des contacts
                                 </label>
-                                <input id="file" type="file" class="input-box" @change="onFile">
+                                <input id="file" type="file" class="input-box" ref="file" @change="onFile">
                             </div>
                         </div>
 
                     </div>
                     <!-- Boutons -->
                     <div class="flex justify-end mt-4">
-                            <button @click="!editMode ? createProduct() : updateProduct()"
+                            <button @click="!editMode ? storeProduct() : updateProduct()"
                                     type="button"
                                     class="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
                             >
@@ -164,15 +170,17 @@ const products = ref([])
 const categories = ref([])
 const showModal = ref(false)
 const editMode = ref(false)
+
+const product = ref([])
+const hover_image = ref(null);
+const file = ref(null);
+
 const form = ref({
     name: '',
     category_id: '',
     description: '',
     price: '',
 })
-const hover_image = ref(null)
-const file = ref(null)
-const product = ref([])
 
 const toggleModal = () => {
     showModal.value = !showModal.value;
@@ -181,6 +189,7 @@ const toggleModal = () => {
         editMode.value = false
     }
 };
+
 // Récupérons les produits
 const getProducts = async () => {
     let response = await axios.get('/api/get_products/')
@@ -195,35 +204,68 @@ const getCategories = async () => {
 
 // get hover_image and file name
 const  onFile = (e) => {
-    file.value = e.target.files[0]
+    // ajouter file à form
+    form.value.file = e.target.files[0]
+    //file.value = e.target.files[0]
+
 }
 const onImage = (e) => {
-    hover_image.value = e.target.files[0]
+    form.value.hover_image = e.target.files[0]
+    //hover_image.value = e.target.files[0]
+}
+
+const formDataFunc = () => {
+    let formData = new FormData()
+    formData.append('name', form.value.name? form.value.name : '')
+    formData.append('category_id', form.value.category_id ? form.value.category_id : '')
+    formData.append('description', form.value.description ? form.value.description : '')
+    formData.append('price', form.value.price ? form.value.price : '')
+    formData.append('hover_image', form.value.hover_image ? form.value.hover_image : '')
+    formData.append('file', form.value.file ? form.value.file : '')
+
+    return formData
 }
 
 // Stocker le produit
-const createProduct = async () => {
-    const formData = new FormData();
-    formData.append('name', form.value.name)
-    formData.append('category_id', form.value.category_id)
-    formData.append('description', form.value.description)
-    formData.append('hover_image', hover_image.value)
-    formData.append('hover_image', file.value)
-    formData.append('price', form.value.price)
-
-    for(const [key, value] of formData.entries()){
-        if (value === '' || value === undefined){
-            formData.delete(key)
-        }
-    }
-
-    await axios.post('/api/create_product/', formData).then((response) => {
+const storeProduct = async () => {
+    let formData = formDataFunc()
+    await axios.post('/api/storeProduct/', formData).then((response) => {
         getProducts()
         toggleModal()
-        toast.fire({
-            icon: "success",
-            title: 'Produit ajouté avec succès'
-        })
+        if (response.data.success){
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: response.data.success,
+                showConfirmButton: true,
+                timer: 1000,
+                toast: true,
+                timerProgressBar: true,
+                didClose() {
+                    window.location.reload()
+                }
+            })
+        }
+    })
+        .catch(error => {
+            console.log(error)
+            let message = ''
+            if (error.response.data.errors){
+                message = '<ul>' +
+                    Object.values(error.response.data.errors).map(message => {
+                        return '<li>' + message + '</li>';
+                    }) +
+                    '</ul>'
+            } else if (error.response.data.error){
+                message = error.response.data.error
+            }
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                html: message,
+                showConfirmButton: true,
+                toast: true,
+            });
 
     })
 }
@@ -233,32 +275,52 @@ const getProduct = async (id) => {
     product.value = response.data.product
     editMode.value = true
     // Mettez à jour les références hover_image et file à partir de form.value
-    hover_image.value = product.value.hover_image;
-    file.value = product.value.hover_image;
+
     toggleModal()
     form.value = product.value
+    form.value.hover_image = ''
+    form.value.file = ''
 }
 
 const updateProduct = async () => {
-
-    // Vérifiez si un nouveau fichier hover_image a été sélectionné
-    if (hover_image.value) {
-        product.value.hover_image = hover_image.value;
-    }
-
-    // Vérifiez si un nouveau fichier hover_image a été sélectionné
-    if (file.value) {
-        product.value.file = file.value;
-    }
-    await axios.put('/api/update_product/'+product.value.id, product.value).then((response) => {
-        getProducts()
-        toggleModal()
-        toast.fire({
-            icon: "success",
-            title: 'Produit mis à jour avec succès'
-        })
-
-    })
+    let formData = formDataFunc();
+    formData.append('_method', 'put');
+    await axios.post('/api/updateProduct/'+product.value.id, formData).then((response) => {
+        if (response.data.success){
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: response.data.success,
+                showConfirmButton: true,
+                timer: 1000,
+                toast: true,
+                timerProgressBar: true,
+                didClose() {
+                    getProducts()
+                    toggleModal()
+                }
+            })
+        }
+    }) .catch(error => {
+        //console.log(error)
+        let message = ''
+        if (error.response.data.errors){
+            message = '<ul>' +
+                Object.values(error.response.data.errors).map(message => {
+                    return '<li>' + message + '</li>';
+                }) +
+                '</ul>'
+        } else if (error.response.data.error){
+            message = error.response.data.error
+        }
+        Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            html: message,
+            showConfirmButton: true,
+            toast: true,
+        });
+    });
 }
 const deleteProduct = async (id) => {
     Swal.fire({
@@ -268,19 +330,37 @@ const deleteProduct = async (id) => {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it !'
+        confirmButtonText: 'Yes, delete it !',
+        reverseButtons: true
     })
         .then((result) => {
             if(result.value){
-                axios.delete('/api/delete_product/' + id)
-                    .then(() => {
-                        Swal.fire(
-                            'Delete',
-                            'Produit supprimé avec  succès',
-                            'success'
-                        )
-                        getProducts()
+                axios.delete('/api/destroyProduct/'+id)
+                    .then(response => {
+                        if (response.data.success){
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: response.data.success,
+                                showConfirmButton: true,
+                                timer: 1000,
+                                toast: true,
+                                timerProgressBar: true,
+                                didClose() {
+                                    getProducts()
+                                }
+                            })
+                        }
                     })
+                    .catch(error => {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'error',
+                            title: error.response.data.error,
+                            showConfirmButton: true,
+                            toast: true,
+                        });
+                    });
             }
         })
 }
