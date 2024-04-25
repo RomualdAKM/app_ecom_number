@@ -46,7 +46,7 @@ export default function useCateogiries(){
 
     //--------------Fin: section réservée à la partie Dashboard (administration)-------------
     const getCategories = async () =>{
-        let response = await axios.get(' /api/get_categories')
+        let response = await axios.get('/api/get_categories')
         categories.value = response.data.categories;
     }
 
