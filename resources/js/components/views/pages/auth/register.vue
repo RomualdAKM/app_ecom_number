@@ -17,7 +17,7 @@ let errors = ref([]);
 const register = async () => {
     await axios.post("/api/register", form).then((response) => {
         if (response.data.success) {
-            localStorage.setItem("token", response.data.data.token);
+            sessionStorage.setItem("token", response.data.data.token);
              router.push("/login");
             toast.fire({
             icon: "success",
