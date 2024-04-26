@@ -20,12 +20,12 @@ const data = useShoppingStore();
             <div class="relative product">
                 <!-- Image principale -->
                 <img
-                    :src="product.image" class="w-full"
+                :src="'/storage/' + product.hover_image" class="w-full"
                     :alt="product.name"
                 >
                 <!-- Image au survol -->
                 <img
-                    :src="product.hover_image"
+                    :src="'/storage/' + product.hover_image"
                     :alt="product.name"
                     class="w-full absolute inset-0 hidden hover-image"
                 />

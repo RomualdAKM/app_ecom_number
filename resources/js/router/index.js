@@ -11,6 +11,7 @@ import CategoryIndex from "../components/views/dashboard/CategoryIndex.vue";
 import profil from "../components/views/dashboard/profil.vue";
 import cart from "../components/views/components/Cart.vue"
 import code from "../components/views/dashboard/code.vue";
+import BuyerProducts from "../components/views/dashboard/BuyerProducts.vue";
 // import code from "@/components/views/dashboard/code.vue";
 
 const routes = [
@@ -79,14 +80,28 @@ const routes = [
         props: true,
         children:[
             {
+                path: 'BuyerProducts',
+                component: BuyerProducts,
+                name: 'dashboard-BuyerProducts',
+                meta: {
+                    requiresAuth: true
+                }
+            },
+            {
                 path: 'categories',
                 component: CategoryIndex,
-                name: 'dashboard-categories'
+                name: 'dashboard-categories',
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
                 path: 'products',
                 component: ProductIndex,
-                name: 'dashboard-products'
+                name: 'dashboard-products',
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
                 path: 'profil',
@@ -125,7 +140,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to,from) =>{
-    if(to.meta.requiresAuth && !localStorage.getItem('token')){
+    if(to.meta.requiresAuth && !sessionStorage.getItem('token')){
         return { name: 'login' }
     }
 

@@ -213,4 +213,14 @@ class ProductController extends Controller
 
         }
     }
+
+    public function getBuyerProducts()
+    {
+        $userId = Auth::id();
+        $products = User::find($userId)->products;
+
+        return response()->json([
+            'products' => $products,
+        ]);
+    }
 }
