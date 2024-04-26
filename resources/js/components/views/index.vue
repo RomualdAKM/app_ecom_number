@@ -20,13 +20,25 @@
         <Banner />
     <!-- banner end -->
 
+    <!-- Why -->
+    <Why />
+    <!-- Why end -->
+  
+
    <!--SHOP BY CATEGORY -->
         <CategoryList />
 
     <!-- top new arrival -->
         <NewArrival />
 
-        <Footer />
+        <!-- About -->
+        <About />
+       <!-- About end -->
+         <!-- Faq -->
+         <Faq />
+    <!-- Faq end -->
+
+        <!-- <Footer /> -->
 
         <Copyright />
     </div>
@@ -36,6 +48,10 @@
 import CategoryList from "./components/CategoryList.vue";
 import NewArrival from "./components/NewArrival.vue";
 import Header from "./components/header.vue";
+import Faq from "./components/Faq.vue";
+import About from "./components/About.vue";
+import Why from "./components/Why.vue";
+import Feature from "./components/Feature.vue";
 import NavBar from "./components/NavBar.vue";
 import MobileMenubar from "./components/MobileMenubar.vue";
 import MobileSidebar from "./components/MobileSidebar.vue";

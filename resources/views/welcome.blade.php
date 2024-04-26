@@ -25,10 +25,10 @@
 
          <!-- copyright end -->
 
-        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-        <script src="https://cdn.datatables.net/2.0.4/js/dataTables.js"></script>
-        <script src="https://cdn.datatables.net/2.0.4/js/dataTables.tailwindcss.js"></script>
-    <script>
+                <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+                <script src="https://cdn.datatables.net/2.0.4/js/dataTables.js"></script>
+                <script src="https://cdn.datatables.net/2.0.4/js/dataTables.tailwindcss.js"></script>
+         <script>
         /*// initialiser datatable
         $(document).ready(function() {
             $('#dataTable').DataTable();

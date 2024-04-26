@@ -9,8 +9,8 @@ import {onMounted} from "vue";
 import useCateogiries from "../../../compositions/categories";
 
 const { categories, getCategories } = useCateogiries();
-onMounted( () => {
-    getCategories()
+onMounted( async () => {
+   await getCategories()
 } );
 </script>
 
