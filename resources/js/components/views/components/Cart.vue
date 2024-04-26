@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
 import { useShoppingStore } from '../../../stores/pinia';
-import Header from './Header.vue';
+import Header from './header.vue';
 import NavBar from './NavBar.vue';
 import MobileMenubar from './MobileMenubar.vue';
 import MobileSidebar from './MobileSidebar.vue';
