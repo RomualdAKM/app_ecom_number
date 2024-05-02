@@ -3,18 +3,18 @@
 
 <template>
   <!-- Section À propos -->
-  <section class="py-16 bg-white">
+  <section class="py-16 bg-white" id="about">
     <div class="container mx-auto px-6">
       <!-- Titre de la section -->
       <h2 class="text-4xl font-bold text-center text-gray-800 mb-10">À propos des fichiers de contacts</h2>
-      
+
       <!-- Contenu principal -->
       <div class="flex flex-col md:flex-row md:space-x-8 items-center">
         <!-- Image de présentation -->
         <div class="md:w-1/2">
           <img src="images/offer.jpg" alt="Fichiers de contacts" class="rounded-lg shadow-lg transition-transform duration-300 hover:scale-105" />
         </div>
-        
+
         <!-- Texte de présentation -->
         <div class="md:w-1/2 mt-8 md:mt-0">
           <p class="text-lg text-gray-600 leading-7 mb-6">

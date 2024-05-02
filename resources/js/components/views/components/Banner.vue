@@ -6,7 +6,7 @@
   <div class="relative overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0 bg-cover bg-no-repeat bg-center animate-zoom-in" style="background-image: url('images/banner-bg.jpg');"></div>
-    
+
     <!-- Content Overlay with Fade-In Animation -->
     <div class="relative z-10 py-40 text-center text-white bg-black bg-opacity-50 flex flex-col items-center justify-center animate-fade-in">
       <!-- Banner Content with Slide-In Animation -->
@@ -25,8 +25,8 @@
       </div>
       <!-- Call to Action Button with Hover Effect -->
       <div class="animate-fade-in delay-1000">
-        <a href="shop.html" class="bg-primary border border-primary text-white px-10 py-4 font-medium rounded-full uppercase transition-transform hover:scale-105 duration-500 ease-in-out">
-          Shop Now
+        <a href="#acheterMaintenant" class="bg-primary border border-primary text-white px-10 py-4 font-medium rounded-full uppercase transition-transform hover:scale-105 duration-500 ease-in-out">
+            ACHETER MAINTENANT
         </a>
       </div>
     </div>

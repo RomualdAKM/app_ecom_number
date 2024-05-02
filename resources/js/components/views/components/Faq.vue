@@ -22,11 +22,11 @@ const toggleFaq = (faq) => {
 
 <template>
   <!-- Section FAQ avec animations -->
-  <section class="py-16 px-4 mx-3 bg-gray-100">
+  <section class="py-16 px-4 mx-3 bg-gray-100" id="faqs">
     <div class="container mx-auto px-2 text-center">
       <!-- Titre de la section -->
       <h2 class="text-2xl font-bold text-gray-800 mb-10">Questions Fréquemment Posées</h2>
-      
+
       <!-- Liste des questions/réponses -->
       <ul class="space-y-6">
         <!-- Boucle pour créer les questions -->
@@ -64,7 +64,7 @@ const toggleFaq = (faq) => {
 
 <style scoped>
 /* Transition pour le glissement lors de l'ouverture/fermeture des réponses */
-.slide-fade-enter-active, 
+.slide-fade-enter-active,
 .slide-fade-leave-active {
   transition: all 0.3s ease-in-out;
 }

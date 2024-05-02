@@ -17,11 +17,11 @@ const data = useShoppingStore();
             </a>
             <!-- logo end -->
 
-           
+
 
             <!-- navicons -->
             <div class="space-x-4 flex items-center">
-                
+
                 <router-link to="/cart"
                    class="lg:block text-center text-gray-700 hover:text-primary transition hidden relative">
                     <span

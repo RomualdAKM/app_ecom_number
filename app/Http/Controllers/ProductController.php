@@ -223,4 +223,14 @@ class ProductController extends Controller
             'products' => $products,
         ]);
     }
+
+    public function filterProductsByPrice(Request $request, $category)
+    {
+        $critere = $request->critere;
+        $query = Product::query()->whereHas('category', function ($query) use ($category){
+            $query->where('name',$category);
+        });
+
+        dd($query->get());
+    }
 }

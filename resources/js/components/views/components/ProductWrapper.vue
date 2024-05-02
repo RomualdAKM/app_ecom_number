@@ -23,12 +23,6 @@ const data = useShoppingStore();
                 :src="'/storage/' + product.hover_image" class="w-full"
                     :alt="product.name"
                 >
-                <!-- Image au survol -->
-                <img
-                    :src="'/storage/' + product.hover_image"
-                    :alt="product.name"
-                    class="w-full absolute inset-0 hidden hover-image"
-                />
                 <div
                     class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
                     <router-link :to="'/product/' + product.id"

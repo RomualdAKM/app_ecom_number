@@ -11,7 +11,7 @@ const getInfoAuthUser = async () =>{
 
 const logout = () => {
   sessionStorage.removeItem("token");
- 
+
    router.push("/");
 };
 
@@ -102,7 +102,7 @@ onMounted( async () => {
                 </router-link>
             </div>
             <!-- Buyer products  single link end -->
-          
+
             <!-- single link end -->
             <!-- single link -->
             <div class="pl-8 pt-4">

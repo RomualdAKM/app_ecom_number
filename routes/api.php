@@ -37,6 +37,7 @@ Route::controller(ProductController::class)->group(function(){
         Route::get('get_product/{id}','get_product');
         Route::get('get_related_products/{categoryId}/{currentProductId}','get_related_products');
         Route::post('store_user_products','store_user_products');
+        Route::get('filter_productsByPrice/{categoryId}','filterProductsByPrice');
 
         Route::post('storeProduct','store');
         Route::put('updateProduct/{id}','update');
