@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 class CategoryController extends Controller
 {
@@ -31,12 +32,21 @@ class CategoryController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'name' => 'required|unique:categories'
+            'name' => 'required|unique:categories',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|'
         ]);
 
         $category = new Category([
-            'name' => $request->input('name')
+            'name' => $request->input('name'),
         ]);
+
+        // upload de image
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName= time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs('uploads/images', $fileName, 'public');
+            $category->image = $filePath;
+        }
         $category->save();
 
         return response()->json([
@@ -54,11 +64,23 @@ class CategoryController extends Controller
 
     public function update(Request $request,  $id){
         $request->validate([
-            'name' => 'required|unique:categories,name,'.$id
+            'name' => 'required|unique:categories,name,'.$id,
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|'
         ]);
 
         $category = Category::findOrFail($id);
         $category->name = $request->input('name');
+        // update image
+        if ($request->hasFile('image')) {
+            // Supprimer l'image existante si elle existe
+            if ($category->image) {
+                Storage::disk('public')->delete($category->image);
+            }
+            $file = $request->file('image');
+            $fileName= time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs('uploads/images', $fileName, 'public');
+            $category->image = $filePath;
+        }
         $category->update();
 
         return response()->json([

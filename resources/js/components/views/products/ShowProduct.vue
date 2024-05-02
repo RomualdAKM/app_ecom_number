@@ -13,6 +13,7 @@ import MobileMenubar from "../components/MobileMenubar.vue";
 import Footer from "../components/Footer.vue";
 import Copyright from "../components/Copyright.vue";
 import {useRoute} from "vue-router";
+import { useShoppingStore } from './../../../stores/pinia.js'
 
 const route = useRoute()
 const name = ref(route.params.name)
@@ -23,7 +24,8 @@ watch(route, async () => {
 })
 
 const props = defineProps( {
-    id: Number
+    id: Number,
+    products: Object
 });
 
 
@@ -32,6 +34,9 @@ const { product, getProduct  } = useProducts();
 onMounted(() => {
     getProduct(props.id);
 })
+
+const data = useShoppingStore();
+
 
 </script>
 
@@ -57,20 +62,13 @@ onMounted(() => {
     <!-- breadcrum end -->
 
     <!-- product view -->
-    <div class="container pt-4 pb-6 grid lg:grid-cols-2 gap-6">
+    <div class="container pt-4 pb-6 grid lg:grid-cols-2 gap-6 mb-4">
         <!-- product image -->
-        <div>
-            <div class="relative product">
-                <img id="main-img" :src="product.image" :alt="product.name" class="w-full">
-                <!-- Image au survol -->
-                <img
-                    :src="product.hover_image"
-                    :alt="product.name"
-                    class="w-full absolute inset-0 hidden hover-image"
-                />
-            </div>
+        <div class="relative">
+            <img id="main-img" :src="'/storage/' + product.hover_image" :alt="product.name" class="object-cover w-full rounded">
         </div>
         <!-- product image end -->
+
         <!-- product content -->
         <div>
             <h2 class="md:text-3xl text-2xl font-medium uppercase mb-2">{{ product.name }}</h2>
@@ -88,58 +86,42 @@ onMounted(() => {
 
             <!-- add to cart button -->
             <div class="flex gap-3 border-b border-gray-200 pb-5 mt-6">
-                <a href="#" class="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase
+                <a href="#" @click="data.addToCart(product)" class="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase
                     hover:bg-transparent hover:text-primary transition text-sm flex items-center">
-                    <span class="mr-2"><i class="fas fa-shopping-bag"></i></span> Add to cart
+                    <span class="mr-2"><i class="fas fa-shopping-bag"></i></span> Ajouter au panier
                 </a>
                 <a href="#" class="border border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase
                     hover:bg-transparent hover:text-primary transition text-sm">
-                    <span class="mr-2"><i class="far fa-heart"></i></span> Wishlist
+                    <span class="mr-2"><i class="far fa-heart"></i></span> Favoris
                 </a>
             </div>
             <!-- add to cart button end -->
-            <!-- product share icons -->
-            <div class="flex space-x-3 mt-4">
-                <a href="#"
-                   class="text-gray-400 hover:text-gray-500 h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#"
-                   class="text-gray-400 hover:text-gray-500 h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#"
-                   class="text-gray-400 hover:text-gray-500 h-8 w-8 rounded-full border border-gray-300 flex items-center justify-center">
-                    <i class="fab fa-instagram"></i>
-                </a>
+
+            <div class="mt-4">
+                <!-- product description and review -->
+                    <!-- description buttons -->
+                    <h3 class="border-b border-gray-200 font-roboto text-gray-800 pb-3 font-medium">
+                        Description du Produit
+                    </h3>
+                    <!-- description button end -->
+
+                    <!-- description content -->
+                    <div class="lg:w-4/5 xl:w-3/5 pt-6">
+                        <div class="space-y-3 text-gray-600">
+                            <p>
+                                {{
+                                    product.description
+                                }}
+                            </p>
+                        </div>
+                    </div>
+                    <!-- description content end -->
+                <!-- product description and review end -->
             </div>
-            <!-- product share icons end -->
         </div>
         <!-- product content end -->
     </div>
     <!-- product view end -->
-
-    <!-- product description and review -->
-    <div class="container pb-16">
-        <!-- description buttons -->
-        <h3 class="border-b border-gray-200 font-roboto text-gray-800 pb-3 font-medium">
-            Product description
-        </h3>
-        <!-- description button end -->
-
-        <!-- description content -->
-        <div class="lg:w-4/5 xl:w-3/5 pt-6">
-            <div class="space-y-3 text-gray-600">
-                <p>
-                    {{
-                        product.description
-                    }}
-                </p>
-            </div>
-        </div>
-        <!-- description content end -->
-    </div>
-    <!-- product description and review end -->
 
     <!-- related products -->
     <RelatedProduct
@@ -149,9 +131,6 @@ onMounted(() => {
     />
     <!-- related products end -->
 
-    <!-- footer -->
-    <Footer />
-    <!-- footer end -->
 
     <!-- copyright -->
     <Copyright />

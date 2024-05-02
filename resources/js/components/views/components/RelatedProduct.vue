@@ -27,7 +27,7 @@ onMounted(()=>{
 
 <template>
     <div class="container pb-16">
-        <h2 class="text-2xl md:text-3xl font-medium text-gray-800 uppercase mb-6">related products</h2>
+        <h2 class="text-2xl md:text-3xl font-medium text-gray-800 uppercase mb-6">PRODUITS CONNEXES</h2>
         <!-- product wrapper -->
         <ProductWrapper :products="relatedProducts" />
     </div>

@@ -52,7 +52,7 @@ const data = useShoppingStore();
             <!-- product button -->
             <button @click="data.addToCart(product)"
                class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
-                Add to Cart
+                Ajouter au panier
             </button>
             <!-- product button end -->
         </div>
