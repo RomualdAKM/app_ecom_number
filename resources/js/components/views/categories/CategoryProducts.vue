@@ -8,6 +8,8 @@ import ProductWrapper from "../components/ProductWrapper.vue";
 import Footer from "../components/Footer.vue";
 import Copyright from "../components/Copyright.vue";
 import {useRoute} from "vue-router";
+import MobileSidebar from "../components/MobileSidebar.vue";
+import MobileMenubar from "../components/MobileMenubar.vue";
 
 const route = useRoute()
 const name = ref(route.params.name)
@@ -106,8 +108,14 @@ const filterProducts = async () => {
         <!-- products end -->
     </div>
     <!-- shop wrapper end -->
-
     <Copyright />
+    <!-- mobile menubar -->
+    <MobileMenubar />
+    <!-- mobile menu end -->
+
+    <!-- mobile sidebar menu -->
+    <MobileSidebar />
+    <!-- mobile sidebar menu end -->
 </template>
 
 <style scoped>
