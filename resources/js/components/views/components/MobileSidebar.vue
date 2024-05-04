@@ -13,18 +13,18 @@
             <!-- navlink -->
             <h3 class="text-xl font-semibold text-gray-700 mb-1 font-roboto pl-4 pt-4">Menu</h3>
             <div class="">
-                <a href="index.html" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
-                    Home
-                </a>
-                <a href="shop.html" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
-                    Shop
+                <router-link :to="{ name:'index' }" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
+                    Acceuil
+                </router-link>
+                <a href="#about" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
+                    À Propos
                 </a>
                 <a href="#" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
-                    About Us
+                    Contacts
                 </a>
-                <roa href="#" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
-                    Contact Us
-                </roa>
+                <a href="#faqs" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
+                    FAQs
+                </a>
             </div>
             <!-- navlinks end -->
         </div>
