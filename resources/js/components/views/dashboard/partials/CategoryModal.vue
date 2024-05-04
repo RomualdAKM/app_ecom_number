@@ -10,7 +10,8 @@ const props = defineProps({
     getCategories: Function,
     category: ref([]),
     mode: ref(''),
-    form: ref({})
+    form: ref({}),
+    onImage: Function,
 });
 
 </script>
@@ -41,6 +42,10 @@ const props = defineProps({
                             name="name"
                             type="text"
                         />
+                    </div>
+                    <div class="mb-4">
+                        <label for="image" class="block text-gray-700">IMAGE</label>
+                        <input id="image" type="file" class="input-box" ref="image" @change="onImage" >
                     </div>
 
                     <!-- Boutons -->

@@ -24,7 +24,7 @@
                     <td class="py-3 px-6 text-left ">
                         <div class="flex items-center">
                             <div class="mr-2">
-                                <img class="w-12 h-12 rounded-full" :src="product.hover_image" :alt="product.name"/>
+                                <img class="w-12 h-12 rounded-full" :src="'/storage/' + product.hover_image" :alt="product.name"/>
                             </div>
                             <span class="font-medium">{{ product.name }}</span>
                         </div>

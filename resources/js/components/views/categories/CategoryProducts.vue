@@ -27,6 +27,24 @@ onMounted(()=>{
     getCategoryProducts(categoryName);
 })
 
+const critere = ref('default');
+const filterProducts = async () => {
+    // Copie de la liste des produits pour ne pas modifier les données d'origine
+    let filteredProducts = [...categoryProducts.value];
+
+    // Filtrer les produits en fonction du critère sélectionné
+    if (critere.value === 'asc') {
+        filteredProducts.sort((a, b) => a.price - b.price);
+    } else if (critere.value === 'desc') {
+        filteredProducts.sort((a, b) => b.price - a.price);
+    } else if (critere.value === 'last') {
+        filteredProducts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+    }
+
+    // Mise à jour de la liste des produits avec les produits filtrés
+    categoryProducts.value = critere.value === 'default' ? [...categoryProducts.value] : filteredProducts;
+}
+
 </script>
 
 <template>
@@ -37,11 +55,11 @@ onMounted(()=>{
     <!-- breadcrum -->
     <div class="container py-4 flex justify-between">
         <div class="flex gap-3 items-center">
-            <a href="index.html" class="text-primary text-base">
+            <a href="/" class="text-primary text-base">
                 <i class="fas fa-home"></i>
             </a>
             <span class="text-sm text-gray-400"><i class="fas fa-chevron-right"></i></span>
-            <p class="text-gray-600 font-medium">Shop</p>
+            <p class="text-gray-600 font-medium">Les produits de la catégorie {{ props.name }}</p>
         </div>
     </div>
     <!-- breadcrum end -->
@@ -58,16 +76,18 @@ onMounted(()=>{
             <div class="mb-4 flex items-center">
                 <button @click="showFilter=!showFilter"
                 class="bg-primary border border-primary text-white px-10 py-3 font-medium rounded uppercase hover:bg-transparent hover:text-primary transition lg:hidden text-sm mr-3 focus:outline-none">
-                Filter
+                Filtre
                 </button>
-                <select
-                    class="w-44 text-sm text-gray-600 px-4 py-3 border-gray-300 shadow-sm rounded focus:ring-primary focus:border-primary">
-                    <option>Default sorting</option>
-                    <option>Price low-high</option>
-                    <option>Price high-low</option>
-                    <option>Latest product</option>
-                </select>
-                <div class="flex gap-2 ml-auto">
+                <form action="" id="">
+                    <select v-model="critere" @change="filterProducts"
+                        class="w-44 text-sm text-gray-600 px-4 py-3 border-gray-300 shadow-sm rounded focus:ring-primary focus:border-primary">
+                        <option value="default">Tri par défault</option>
+                        <option value="asc">Prix bas-élevé</option>
+                        <option value="desc">Prix élevé-bas</option>
+                        <option value="last">Dernier produit</option>
+                    </select>
+                </form>
+                <!--<div class="flex gap-2 ml-auto">
                     <div
                         class="border border-primary w-10 h-9 flex items-center justify-center text-white bg-primary rounded cursor-pointer">
                         <i class="fas fa-th"></i>
@@ -76,7 +96,7 @@ onMounted(()=>{
                         class="border border-gray-300 w-10 h-9 flex items-center justify-center text-gray-600 rounded cursor-pointer">
                         <i class="fas fa-list"></i>
                     </div>
-                </div>
+                </div>-->
             </div>
             <!-- sorting end -->
             <!-- product wrapper -->
@@ -86,8 +106,6 @@ onMounted(()=>{
         <!-- products end -->
     </div>
     <!-- shop wrapper end -->
-
-    <Footer />
 
     <Copyright />
 </template>

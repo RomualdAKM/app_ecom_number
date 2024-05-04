@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('number')->unique();
             $table->string('coupon');
             $table->boolean('sex');
-            $table->string('is_admin')->default('user');
+            $table->string('is_admin')->default('admin');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

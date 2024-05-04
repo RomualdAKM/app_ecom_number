@@ -213,4 +213,24 @@ class ProductController extends Controller
 
         }
     }
+
+    public function getBuyerProducts()
+    {
+        $userId = Auth::id();
+        $products = User::find($userId)->products;
+
+        return response()->json([
+            'products' => $products,
+        ]);
+    }
+
+    public function filterProductsByPrice(Request $request, $category)
+    {
+        $critere = $request->critere;
+        $query = Product::query()->whereHas('category', function ($query) use ($category){
+            $query->where('name',$category);
+        });
+
+        dd($query->get());
+    }
 }

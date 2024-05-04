@@ -17,31 +17,11 @@ const data = useShoppingStore();
             </a>
             <!-- logo end -->
 
-            <!-- searchbar -->
-            <div class="w-full xl:max-w-xl lg:max-w-lg lg:flex relative hidden">
-                <span class="absolute left-4 top-3 text-lg text-gray-400">
-                    <i class="fas fa-search"></i>
-                </span>
-                <input type="text"
-                       class="pl-12 w-full border border-r-0 border-primary py-3 px-3 rounded-l-md focus:ring-primary focus:border-primary"
-                       placeholder="recherche">
-                <button type="submit"
-                        class="bg-primary border border-primary text-white px-8 font-medium rounded-r-md hover:bg-transparent hover:text-primary transition">
-                    Recherche
-                </button>
-            </div>
-            <!-- searchbar end -->
+
 
             <!-- navicons -->
             <div class="space-x-4 flex items-center">
-                <a href="wishlist.html" class="block text-center text-gray-700 hover:text-primary transition relative">
-                    <span
-                        class="absolute -right-0 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs">5</span>
-                    <div class="text-2xl">
-                        <i class="far fa-heart"></i>
-                    </div>
-                    <div class="text-xs leading-3">Favoris</div>
-                </a>
+
                 <router-link to="/cart"
                    class="lg:block text-center text-gray-700 hover:text-primary transition hidden relative">
                     <span
@@ -51,7 +31,11 @@ const data = useShoppingStore();
                     </div>
                     <div class="text-xs leading-3">Panier</div>
                 </router-link>
+<<<<<<< HEAD
                 <router-link :to="{ name: 'dashboard'}" class="block text-center text-gray-700 hover:text-primary transition">
+=======
+                <router-link to="/dashboard" class="block text-center text-gray-700 hover:text-primary transition">
+>>>>>>> b0b01dbcf621f185e27318fdead2aacf2641da42
                     <div class="text-2xl">
                         <i class="far fa-user"></i>
                     </div>

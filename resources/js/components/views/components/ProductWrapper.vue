@@ -20,15 +20,9 @@ const data = useShoppingStore();
             <div class="relative product">
                 <!-- Image principale -->
                 <img
-                    :src="product.image" class="w-full"
+                :src="'/storage/' + product.hover_image" class="w-full"
                     :alt="product.name"
                 >
-                <!-- Image au survol -->
-                <img
-                    :src="product.hover_image"
-                    :alt="product.name"
-                    class="w-full absolute inset-0 hidden hover-image"
-                />
                 <div
                     class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
                     <router-link :to="'/product/' + product.id"
@@ -58,7 +52,7 @@ const data = useShoppingStore();
             <!-- product button -->
             <button @click="data.addToCart(product)"
                class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
-                Add to Cart
+                Ajouter au panier
             </button>
             <!-- product button end -->
         </div>

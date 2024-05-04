@@ -5,6 +5,8 @@ import Header from './header.vue';
 import NavBar from './NavBar.vue';
 import MobileMenubar from './MobileMenubar.vue';
 import MobileSidebar from './MobileSidebar.vue';
+import router from "./../../../router/index.js"
+
 import Footer from './Footer.vue';
 import { openKkiapayWidget, addKkiapayListener, removeKkiapayListener } from 'kkiapay';
 import axios from 'axios';
@@ -32,11 +34,14 @@ const successHandler = async () => {
 
     // Envoyer la requête
     const response = await axios.post('/api/store_user_products', payload);
+    router.push("/dashboard/BuyerProducts")
+
     const success = response.data.success;
     const message = response.data.message;
 
     if (success) {
       toast.fire({ icon: 'success', title: 'Enregistré avec succès' });
+
     } else {
       toast.fire({ icon: 'error', title: 'Erreur: ' + message });
     }
@@ -59,7 +64,7 @@ const open = (price) => {
 const fetchPromoCodes = async () => {
   try {
     const response = await axios.get("/api/get_codes");
-    codes.value = response.data;
+    codes.value = response.data.codes;
   } catch (error) {
     console.error("Erreur lors de la récupération des codes promo", error);
   }

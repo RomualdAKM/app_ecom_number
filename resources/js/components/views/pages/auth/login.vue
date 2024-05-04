@@ -13,11 +13,11 @@ let form = reactive({
 const login = async () => {
     await axios.post("api/login", form).then((response) => {
         if (response.data.success) {
-            localStorage.setItem("token", response.data.data.token);
+            sessionStorage.setItem("token", response.data.data.token);
             router.push("/");
              toast.fire({
             icon: "success",
-            title: "Connect  Successfully",
+            title: "Connexion réussie",
         });
         } else {
            toast.fire({
@@ -36,22 +36,22 @@ const login = async () => {
     <div class="container py-16 mt-16">
         <div class="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
             <h2 class="text-2xl uppercase font-medium mb-1">
-                LOGIN
+                CONNEXION
             </h2>
             <p class="text-gray-600 mb-6 text-sm">
-                Login if you are a returing customer
+                Connectez-vous si vous êtes un client fidèle
             </p>
             <form @submit.prevent="login()">
                 <div class="space-y-4">
                     <div>
                         <label class="text-gray-600 mb-2 block">
-                            Email Address <span class="text-primary">*</span>
+                            Adresse e-mail <span class="text-primary">*</span>
                         </label>
                         <input type="email" v-model="form.email" class="input-box" placeholder="example@mail.com">
                     </div>
                     <div>
-                        <label class="text-gray-600 mb-2 block">Password <span class="text-primary">*</span></label>
-                        <input type="password" v-model="form.password" class="input-box" placeholder="type password">
+                        <label class="text-gray-600 mb-2 block">Mot de passe <span class="text-primary">*</span></label>
+                        <input type="password" v-model="form.password" class="input-box" placeholder="tapez votre mot de passe">
                     </div>
                 </div>
                 <!-- <div class="flex items-center justify-between mt-6">
@@ -67,15 +67,15 @@ const login = async () => {
                 <div class="mt-4">
                     <button type="submit"
                         class="block w-full py-2 text-center text-dark bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium">
-                        Login
+                        Se connecter
                     </button>
                 </div>
             </form>
 
-          
+
 
             <p class="mt-4 text-gray-600 text-center">
-                Don't have an account? <router-link to="/register" class="text-primary">Register Now
+                Vous n'avez pas de compte ? <router-link to="/register" class="text-primary">S'inscrire maintenant
                 </router-link>
             </p>
         </div>

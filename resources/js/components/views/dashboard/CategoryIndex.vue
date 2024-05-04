@@ -22,7 +22,12 @@
                     <template v-if="categories && categories.length">
                         <tr v-for="category in categories" :key="category.id">
                             <td class="border px-4 py-2">
-                                <span class="font-medium">{{ category.name }}</span>
+                                <div class="flex items-center">
+                                    <div class="mr-2">
+                                        <img class="w-12 h-12 rounded-full" :src="'/storage/' + category.image" :alt="category.name"/>
+                                    </div>
+                                    <span class="font-medium">{{ category.name }}</span>
+                                </div>
                             </td>
                             <td class="border px-4 py-2">
                                 <span class="font-medium">{{ category.created_at }}</span>
@@ -58,6 +63,7 @@
             :updateCategory="updateCategory"
             :storeCategory="storeCategory"
             :form="form"
+            :onImage="onImage"
         />
     </div>
 
@@ -81,9 +87,13 @@ const mode = ref('create');
 const categories = ref([]);
 
 const form = ref({
-    name: ''
+    name: '',
 })
 
+// Récupérer l'image de la catégorie
+const  onImage = (e) => {
+    form.value.image = e.target.files[0]
+}
 // Récupérer toutes les catégories
 const getCategories = async () =>{
     let response = await axios.get('/api/get_categories');
@@ -120,7 +130,10 @@ const editCategory = async (category) => {
 
 // Créer une catégorie
 const storeCategory = async () => {
-    await axios.post('/api/storeCategory', form.value)
+    let formData = new FormData()
+    formData.append('name', form.value.name)
+    formData.append('image', form.value.image)
+    await axios.post('/api/storeCategory', formData)
         .then(response => {
             if (response.data.success){
                 Swal.fire({
@@ -128,7 +141,7 @@ const storeCategory = async () => {
                     icon: 'success',
                     title: response.data.success,
                     showConfirmButton: true,
-                    timer: 3000,
+                    timer: 1000,
                     toast: true,
                     timerProgressBar: true,
                     didClose() {
@@ -161,8 +174,11 @@ const storeCategory = async () => {
 
 // Mettre à jour une catégorie
 const updateCategory = async () => {
-    //if (form.value != null) category.value = form.value
-       await axios.put('/api/updateCategory/'+form.value.id, form.value)
+    let formData = new FormData()
+    formData.append('name', form.value.name)
+    formData.append('image', form.value.image)
+    formData.append('_method', 'put');
+       await axios.post('/api/updateCategory/'+form.value.id, formData)
             .then(response => {
                 if (response.data.success){
                     Swal.fire({

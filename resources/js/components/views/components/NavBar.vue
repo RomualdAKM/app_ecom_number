@@ -20,7 +20,7 @@ onMounted( () =>{
                     <span class="text-white">
                         <i class="fas fa-bars"></i>
                     </span>
-                    <span class="capitalize ml-2 text-white">Toutes categories</span>
+                    <span class="capitalize ml-2 text-white">Toutes les categories</span>
 
                     <div class="absolute left-0 top-full w-full bg-white shadow-md py-3 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition duration-300 z-50 divide-y divide-gray-300 divide-dashed">
                         <!-- single category -->
@@ -37,12 +37,13 @@ onMounted( () =>{
                 <div class="flex items-center justify-between flex-grow pl-12">
                     <div class="flex items-center space-x-6 text-base capitalize">
                         <router-link :to="{ name:'index' }" class="text-gray-200 hover:text-white transition">Accueil</router-link>
-                        <a href="#" class="text-gray-200 hover:text-white transition">À Propos</a>
+                        <a href="#about" class="text-gray-200 hover:text-white transition">À Propos</a>
                         <a href="#" class="text-gray-200 hover:text-white transition">Contacts</a>
+                        <a href="#faqs" class="text-gray-200 hover:text-white transition">FAQs</a>
                     </div>
-                    <a href="login.html" class="ml-auto justify-self-end text-gray-200 hover:text-white transition">
-                        Login/Register
-                    </a>
+                    <router-link :to="{name:'login'}" class="ml-auto justify-self-end text-gray-200 hover:text-white transition">
+                        Connexion/Déconnexion
+                    </router-link>
                 </div>
                 <!-- nav menu end -->
 

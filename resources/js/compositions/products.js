@@ -6,12 +6,12 @@ export default function useProducts(){
     const relatedProducts = ref([]);
 
     const getProducts = async () =>{
-        let response = await axios.get(' /api/get_products')
+        let response = await axios.get('/api/get_products')
         products.value = response.data.products;
     }
 
     const getProduct = async (id) =>{
-        let response = await axios.get(' /api/get_product/' + id)
+        let response = await axios.get('/api/get_product/' + id)
         product.value = response.data.product;
     }
 
