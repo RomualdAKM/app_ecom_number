@@ -16,7 +16,7 @@ onMounted( () =>{
             <div class="flex">
 
                 <!-- all category -->
-                <div class="px-8 py-4 bg-primary flex items-center cursor-pointer group relative">
+                <div class="px-8 py-4 bg-green-900 flex items-center cursor-pointer group relative">
                     <span class="text-white">
                         <i class="fas fa-bars"></i>
                     </span>

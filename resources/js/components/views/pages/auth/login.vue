@@ -66,7 +66,7 @@ const login = async () => {
                 </div> -->
                 <div class="mt-4">
                     <button type="submit"
-                        class="block w-full py-2 text-center text-dark bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium">
+                        class="block w-full py-2 text-center text-white bg-green-900 border border-green-900 rounded hover:bg-transparent hover:text-green-900 transition uppercase font-roboto font-medium">
                         Se connecter
                     </button>
                 </div>
@@ -75,7 +75,7 @@ const login = async () => {
 
 
             <p class="mt-4 text-gray-600 text-center">
-                Vous n'avez pas de compte ? <router-link to="/register" class="text-primary">S'inscrire maintenant
+                Vous n'avez pas de compte ? <router-link to="/register" class="text-green-900">S'inscrire maintenant
                 </router-link>
             </p>
         </div>

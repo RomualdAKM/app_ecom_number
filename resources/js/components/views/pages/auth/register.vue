@@ -86,14 +86,14 @@ const register = async () => {
 
                 <div class="mt-4">
                     <button type="submit"
-                        class="block w-full py-2 text-center text-dark bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium">
+                        class="block w-full py-2 text-center text-white bg-green-900 border border-green-900 rounded hover:bg-transparent hover:text-green-900 transition uppercase font-roboto font-medium">
                         Créer un compte
                     </button>
                 </div>
             </form>
 
             <p class="mt-4 text-gray-600 text-center">
-                Vous avez déjà un compte? <router-link to="/login" class="text-primary">Connecte-toi maintenant</router-link>
+                Vous avez déjà un compte? <router-link to="/login" class="text-green-900">Connecte-toi maintenant</router-link>
             </p>
         </div>
     </div>

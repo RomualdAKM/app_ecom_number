@@ -10,6 +10,7 @@ import router from "./../../../router/index.js"
 import Footer from './Footer.vue';
 import { openKkiapayWidget, addKkiapayListener, removeKkiapayListener } from 'kkiapay';
 import axios from 'axios';
+import Copyright from "./Copyright.vue";
 
 // Store and reference variables
 const data = useShoppingStore();
@@ -103,9 +104,9 @@ onBeforeUnmount(() => {
     <MobileMenubar />
     <MobileSidebar />
     <div class="py-4 container flex gap-3 items-center">
-      <a href="index.html" class="text-primary text-base"><i class="fas fa-home"></i></a>
+      <a href="/" class="text-green-900 text-base"><i class="fas fa-home"></i></a>
       <span class="text-sm text-gray-400"><i class="fas fa-chevron-right"></i></span>
-      <p class="text-gray-600 font-medium uppercase">Shopping Cart</p>
+      <p class="text-gray-600 font-medium uppercase">Panier</p>
     </div>
     <div class="container lg:grid grid-cols-12 gap-6 items-start pb-16 pt-4">
       <div class="xl:col-span-9 lg:col-span-8">
@@ -116,13 +117,16 @@ onBeforeUnmount(() => {
         <div class="space-y-4" v-for="item in data.getCartItems" :key="item.id">
           <div class="flex items-center md:justify-between gap-4 md:gap-6 p-4 border border-gray-200 rounded flex-wrap md:flex-nowrap">
             <div class="w-32 flex-shrink-0">
-              <img src="images/products/product9.jpg" class="w-full" />
+                <img
+                    :src="'/storage/' + item.hover_image" class="w-full"
+                    :alt="item.name"
+                >
             </div>
             <div class="md:w-1/3 w-full">
               <h2 class="text-gray-800 mb-3 xl:text-xl font-medium uppercase">{{ item.name }}</h2>
             </div>
             <div class="flex text-gray-600 divide-x divide-gray-300">
-              <p class="text-primary font-semibold">{{ item.price }} F.CFA</p>
+              <p class="text-green-900 font-semibold">{{ item.price }} F.CFA</p>
             </div>
             <div class="text-gray-600 hover:text-primary cursor-pointer">
               <i class="fas fa-trash" @click="data.removeFromCart(item)"></i>
@@ -136,12 +140,12 @@ onBeforeUnmount(() => {
           <h4>{{ cartTotal }} F.CFA</h4>
         </div>
         <div class="flex mb-5" v-if="showCodePromoSection">
-          <input type="text" v-model="formCode" placeholder="Coupon" class="pl-4 w-full border border-r-0 border-primary py-2 px-3 rounded-l-md" />
-          <button type="button" @click="applyPromo(cartTotal)" class="bg-primary border text-white px-5 font-medium rounded-r-md">Apply</button>
+          <input type="text" v-model="formCode" placeholder="Coupon" class="pl-4 w-full border border-r-0 border-green-900 py-2 px-3 rounded-l-md" />
+          <button type="button" @click="applyPromo(cartTotal)" class="bg-green-900 border text-white px-5 font-medium rounded-r-md">Apply</button>
         </div>
-        <button type="button" @click="open(cartTotal)" class="bg-red-500 text-white px-4 py-3 font-medium rounded-md">Payez Maintenant</button>
+        <button type="button" @click="open(cartTotal)" class="bg-green-900 text-white px-4 py-3 font-medium rounded-md">Payez Maintenant</button>
       </div>
     </div>
-    <Footer />
   </div>
+    <Copyright />
 </template>
