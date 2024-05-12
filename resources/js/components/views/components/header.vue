@@ -9,11 +9,11 @@ const data = useShoppingStore();
 
 <template>
     <!-- header -->
-    <header class="py-4 shadow-sm bg-pink-100 lg:bg-white">
+    <header class="py-4 shadow-sm bg-green-50 lg:bg-white">
         <div class="container flex items-center justify-between">
             <!-- logo -->
             <a href="#" class="block w-32">
-                <img src="images/logo.svg" alt="logo" class="w-full">
+                <img src="images/logo.jpg" alt="logo" class="w-full">
             </a>
             <!-- logo end -->
 
@@ -23,9 +23,9 @@ const data = useShoppingStore();
             <div class="space-x-4 flex items-center">
 
                 <router-link to="/cart"
-                   class="lg:block text-center text-gray-700 hover:text-primary transition hidden relative">
+                   class="lg:block text-center text-gray-700 hover:text-green-900 transition hidden relative">
                     <span
-                        class="absolute -right-3 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs">{{data.countCartItems}}</span>
+                        class="absolute -right-3 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-green-900 text-white text-xs">{{data.countCartItems}}</span>
                     <div class="text-2xl">
                         <i class="fas fa-shopping-bag"></i>
                     </div>
