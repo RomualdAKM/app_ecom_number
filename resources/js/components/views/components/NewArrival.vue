@@ -20,7 +20,7 @@ onMounted( () => {
 <template>
     <!-- top new arrival -->
     <div class="container pb-16">
-        <h2 class="text-2xl md:text-3xl font-medium text-gray-800 uppercase mb-6">TOP NOUVEAUTE</h2>
+        <h2 class="text-2xl md:text-3xl font-medium text-green-800 uppercase mb-6">TOP NOUVEAUTE</h2>
         <!-- product wrapper -->
         <ProductWrapper :products="products.slice(0,8)" />
     </div>

@@ -6,25 +6,25 @@
   <section class="py-16 bg-white" id="about">
     <div class="container mx-auto px-6">
       <!-- Titre de la section -->
-      <h2 class="text-4xl font-bold text-center text-gray-800 mb-10">À propos des fichiers de contacts</h2>
+      <h2 class="text-4xl font-bold text-center text-green-800 mb-10">À propos des fichiers de contacts</h2>
 
       <!-- Contenu principal -->
       <div class="flex flex-col md:flex-row md:space-x-8 items-center">
         <!-- Image de présentation -->
         <div class="md:w-1/2">
-          <img src="images/offer.jpg" alt="Fichiers de contacts" class="rounded-lg shadow-lg transition-transform duration-300 hover:scale-105" />
+          <img src="images/about.png" alt="Fichiers de contacts" class="rounded-lg shadow-lg transition-transform duration-300 hover:scale-105" />
         </div>
 
         <!-- Texte de présentation -->
         <div class="md:w-1/2 mt-8 md:mt-0">
           <p class="text-lg text-gray-600 leading-7 mb-6">
-            Les fichiers de contacts offrent un accès rapide à des milliers de connexions professionnelles, permettant aux entreprises de développer leur réseau de manière efficace. Ils constituent un outil précieux pour les campagnes marketing ciblées et la génération de prospects.
+            Les fichiers de contacts offrent <span class="text-green-800">un accès rapide à des milliers </span>  de connexions professionnelles, permettant aux entreprises de développer leur réseau de manière efficace. Ils constituent un outil précieux pour les campagnes marketing ciblées et la génération de prospects.
           </p>
           <p class="text-lg text-gray-600 leading-7 mb-6">
-            Ces fichiers sont méticuleusement organisés et mis à jour pour garantir leur précision. Que vous soyez une start-up cherchant à élargir sa base de clients ou une grande entreprise souhaitant lancer une nouvelle campagne, les fichiers de contacts vous offrent la flexibilité nécessaire.
+            Ces fichiers sont méticuleusement organisés et mis à jour pour garantir leur précision. Que vous soyez une start-up cherchant à élargir sa base de clients ou une grande entreprise souhaitant lancer une nouvelle campagne, les fichiers de contacts vous offrent <span class="text-green-800"> la flexibilité nécessaire </span> .
           </p>
           <p class="text-lg text-gray-600 leading-7 mb-6">
-            En investissant dans ces fichiers, vous gagnez du temps sur la recherche de prospects et réduisez le coût d'acquisition des clients. C'est la solution idéale pour les professionnels qui veulent établir des connexions rapidement et efficacement.
+            En investissant dans ces fichiers, vous gagnez du temps sur la recherche de prospects et réduisez le coût d'acquisition des clients. C'est la solution idéale pour les professionnels qui veulent établir <span class="text-green-800"> des connexions rapidement et efficacement </span> .
           </p>
         </div>
       </div>

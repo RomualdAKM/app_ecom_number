@@ -25,7 +25,7 @@ const toggleFaq = (faq) => {
   <section class="py-16 px-4 mx-3 bg-gray-100" id="faqs">
     <div class="container mx-auto px-2 text-center">
       <!-- Titre de la section -->
-      <h2 class="text-2xl font-bold text-gray-800 mb-10">Questions Fréquemment Posées</h2>
+      <h2 class="text-2xl font-bold text-green-800 mb-10">Questions Fréquemment Posées</h2>
 
       <!-- Liste des questions/réponses -->
       <ul class="space-y-6">
@@ -37,7 +37,7 @@ const toggleFaq = (faq) => {
           >
             <!-- Question et icône de basculement -->
             <div class="flex justify-between items-center">
-              <span class="text-xl font-semibold text-gray-800">{{ faq.question }}</span>
+              <span class="text-xl font-semibold text-green-800">{{ faq.question }}</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
