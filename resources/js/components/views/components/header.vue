@@ -31,11 +31,7 @@ const data = useShoppingStore();
                     </div>
                     <div class="text-xs leading-3">Panier</div>
                 </router-link>
-<<<<<<< HEAD
                 <router-link :to="{ name: 'dashboard'}" class="block text-center text-gray-700 hover:text-primary transition">
-=======
-                <router-link to="/dashboard" class="block text-center text-gray-700 hover:text-primary transition">
->>>>>>> b0b01dbcf621f185e27318fdead2aacf2641da42
                     <div class="text-2xl">
                         <i class="far fa-user"></i>
                     </div>
