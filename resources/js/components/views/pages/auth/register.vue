@@ -9,20 +9,26 @@ let form = reactive({
     c_password: "",
     sex: "",
     number: "",
+    consent: false
 });
 
 let errors = ref([]);
 
 
 const register = async () => {
+    if (!form.consent) {
+        toast.fire("Vous devez accepter la conservation de vos données pour créer un compte.");
+        return;
+    }
+
     await axios.post("/api/register", form).then((response) => {
         if (response.data.success) {
             sessionStorage.setItem("token", response.data.data.token);
              router.push("/login");
             toast.fire({
-            icon: "success",
-            title: "Compte créé avec success",
-        });
+                icon: "success",
+                title: "Compte créé avec success",
+            });
         } else {
           console.log('error',response.data.message)
            toast.fire({
@@ -81,6 +87,12 @@ const register = async () => {
                             <option value="0">Feminin</option>
                             <option value="1">Masculin</option>
                         </select>
+                    </div>
+                    <div>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" v-model="form.consent" class="form-checkbox text-green-600" required>
+                            <span class="ml-2 text-gray-700">J'accepte que mes données (téléphone et mail) soient conservées.</span>
+                        </label>
                     </div>
                 </div>
 

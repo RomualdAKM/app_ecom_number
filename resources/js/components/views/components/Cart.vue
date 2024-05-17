@@ -147,5 +147,4 @@ onBeforeUnmount(() => {
       </div>
     </div>
   </div>
-    <Copyright />
 </template>
