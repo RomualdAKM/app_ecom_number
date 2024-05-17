@@ -45,7 +45,7 @@ onMounted( async () => {
         <div class="mt-6 bg-white shadow rounded p-4 divide-y divide-gray-200 space-y-4 text-gray-600">
             <!-- Profil single link -->
             <div class="space-y-1 pl-8">
-                <router-link :to="{name:'dashboard-profil'}" class="relative text-base font-medium capitalize hover:text-primary transition block">
+                <router-link :to="{name:'dashboard-profil'}" class="relative text-base font-medium capitalize hover:text-green-600 transition block">
                     Profil
                     <span class="absolute -left-8 top-0 text-base">
                             <i class="fas fa-user-cog"></i>
@@ -58,10 +58,10 @@ onMounted( async () => {
             <!-- Category single link -->
             <div class="space-y-1 pl-8" v-if="authUser.is_admin == 'admin' ">
                 <router-link :to="{name: 'dashboard-categories'}"
-                   class="relative text-base font-medium capitalize hover:text-primary transition block">
+                   class="relative text-base font-medium capitalize hover:text-green-600 transition block">
                     Catégories
                     <span class="absolute -left-8 top-0 text-base">
-                        <i class="fa-regular fa-list"></i>
+                        <i class="fas fa-list"></i>
                     </span>
                 </router-link>
             </div>
@@ -70,7 +70,7 @@ onMounted( async () => {
             <!-- Product single link -->
             <div class="space-y-1 pl-8 pt-4" v-if="authUser.is_admin == 'admin'">
                 <router-link :to="{name:'dashboard-products'}"
-                   class="relative medium capitalize text-gray-800 font-medium hover:text-primary transition block">
+                   class="relative medium capitalize text-gray-800 font-medium hover:text-green-600 transition block">
                     Produits
                     <span class="absolute -left-8 top-0 text-base">
                             <i class="fas fa-shopping-cart"></i>
@@ -82,7 +82,7 @@ onMounted( async () => {
             <!-- Code Promo single link -->
             <div class="space-y-1 pl-8 pt-4" v-if="authUser.is_admin == 'admin'">
                 <router-link :to="{name:'dashboard-code'}"
-                   class="relative medium capitalize text-gray-800 font-medium hover:text-primary transition block">
+                   class="relative medium capitalize text-gray-800 font-medium hover:text-green-600 transition block">
                     Codes Promo
                     <span class="absolute -left-8 top-0 text-base">
                         <i class="fas fa-tag"></i>
@@ -93,7 +93,7 @@ onMounted( async () => {
             <!-- Buyer products  single link -->
             <div class="space-y-1 pl-8 pt-4">
                 <router-link :to="{name:'dashboard-BuyerProducts'}"
-                   class="relative medium capitalize text-gray-800 font-medium hover:text-primary transition block">
+                   class="relative medium capitalize text-gray-800 font-medium hover:text-green-600 transition block">
                     Vos achats
                     <!-- Corrected spelling -->
                     <span class="absolute -left-8 top-0 text-base">
@@ -107,7 +107,7 @@ onMounted( async () => {
             <!-- single link -->
             <div class="pl-8 pt-4">
                 <button type="button" @click="logout()"
-                   class="relative medium capitalize text-gray-800 font-medium hover:text-primary transition block">
+                   class="relative medium capitalize text-gray-800 font-medium hover:text-green-600 transition block">
                     logout
                     <span class="absolute -left-8 top-0 text-base">
                             <i class="fas fa-sign-out-alt"></i>

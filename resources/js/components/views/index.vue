@@ -23,7 +23,7 @@
     <!-- Why -->
     <Why />
     <!-- Why end -->
-  
+
 
    <!--SHOP BY CATEGORY -->
         <CategoryList />
@@ -40,7 +40,6 @@
 
         <!-- <Footer /> -->
 
-        <Copyright />
     </div>
 </template>
 

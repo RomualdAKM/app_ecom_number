@@ -37,7 +37,7 @@ onMounted( () =>{
                         <RouterLink
                             :to="{name:'category-products', params: {name: category.name}}"
                             class="ml-3 cursor-pointer"
-                            :class="{'bg-primary text-white rounded-lg px-2 py-1': category.name === this.$route.params.name}"
+                            :class="{'bg-green-900 text-white rounded-lg px-2 py-1': category.name === this.$route.params.name}"
                         >{{ category.name }}
                         </RouterLink>
 

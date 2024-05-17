@@ -23,7 +23,6 @@
 
             <script src="{{ mix('js/app.js') }}"></script>
 
-         <!-- copyright end -->
 
                 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
                 <script src="https://cdn.datatables.net/2.0.4/js/dataTables.js"></script>

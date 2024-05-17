@@ -80,18 +80,18 @@ const data = useShoppingStore();
                 </p>
             </div>
             <div class="mt-4 flex items-baseline gap-3">
-                <span v-if="product" class="text-primary font-semibold text-xl">{{ parseFloat(product.price).toFixed(0) }} FCFA</span>
+                <span v-if="product" class="text-green-800 font-semibold text-xl">{{ parseFloat(product.price).toFixed(0) }} FCFA</span>
                 <span class="text-gray-500 text-base line-through">{{ modifiedPrice(product.price) }} FCFA</span>
             </div>
 
             <!-- add to cart button -->
             <div class="flex gap-3 border-b border-gray-200 pb-5 mt-6">
-                <a href="#" @click="data.addToCart(product)" class="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase
-                    hover:bg-transparent hover:text-primary transition text-sm flex items-center">
+                <a href="#" @click="data.addToCart(product)" class="bg-green-900 border border-gray-800 text-white px-8 py-2 font-medium rounded uppercase
+                    hover:bg-transparent hover:text-black transition text-sm flex items-center">
                     <span class="mr-2"><i class="fas fa-shopping-bag"></i></span> Ajouter au panier
                 </a>
                 <a href="#" class="border border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase
-                    hover:bg-transparent hover:text-primary transition text-sm">
+                    hover:bg-transparent hover:text-black transition text-sm">
                     <span class="mr-2"><i class="far fa-heart"></i></span> Favoris
                 </a>
             </div>
@@ -131,10 +131,6 @@ const data = useShoppingStore();
     />
     <!-- related products end -->
 
-
-    <!-- copyright -->
-    <Copyright />
-    <!-- copyright end -->
 </template>
 
 <style scoped>
