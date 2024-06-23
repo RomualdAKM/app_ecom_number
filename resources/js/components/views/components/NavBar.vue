@@ -1,12 +1,30 @@
 <script setup>
 import useCateogiries from "../../../compositions/categories";
-import {onMounted} from "vue";
+import {onMounted, ref} from "vue";
+import router from "../../../router/index.js"
 
 const { categories, getCategories } = useCateogiries();
+const authUser = ref({});
 
-onMounted( () =>{
-    getCategories()
+onMounted( async() =>{
+    await getCategories();
+    await getInfoAuthUser();
 });
+
+const getInfoAuthUser = async () => {
+    try {
+        let response = await axios.get('/api/getAuthUser');
+        authUser.value = response.data.data;
+    } catch (error) {
+        console.error('Error fetching auth user info:', error);
+        authUser.value = null; // Si une erreur survient, considérer l'utilisateur comme déconnecté
+    }
+};
+
+const logout = () => {
+    sessionStorage.removeItem("token");
+    router.push("/login");
+};
 </script>
 
 <template>
@@ -41,9 +59,14 @@ onMounted( () =>{
                         <a href="#" class="text-gray-200 hover:text-white transition">Contacts</a>
                         <a href="#faqs" class="text-gray-200 hover:text-white transition">FAQs</a>
                     </div>
-                    <router-link :to="{name:'login'}" class="ml-auto justify-self-end text-gray-200 hover:text-white transition">
-                        Connexion/Déconnexion
-                    </router-link>
+                    <div class="ml-auto justify-self-end">
+                        <router-link v-if="authUser.value != null" :to="{ name: 'login' }" class="text-gray-200 hover:text-white transition">
+                            Connexion
+                        </router-link>
+                        <button v-else @click="logout" class="text-gray-200 hover:text-white transition">
+                            Déconnexion
+                        </button>
+                    </div>
                 </div>
                 <!-- nav menu end -->
 

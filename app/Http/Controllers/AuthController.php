@@ -57,7 +57,7 @@ class AuthController extends Controller
         $response = [
             'success' => true,
             'data' => $success,
-            'message' => "User register successfully"
+            'message' => "L'utilisateur s'est enregistré avec succès"
         ];
 
         return response()->json($response,200);
@@ -77,13 +77,13 @@ class AuthController extends Controller
                 $response = [
                     'success' => true,
                     'data' => $success,
-                    'message' => "Login successfully"
+                    'message' => "Connecté avec succès"
                 ];
                 return response()->json($response, 200);
             }else {
                 $response = [
                     'success' => false,
-                    'message' => "Coordinate not found"
+                    'message' => "Coordonnée introuvable"
                 ];
                 return response()->json($response);
             }

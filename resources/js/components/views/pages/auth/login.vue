@@ -47,11 +47,11 @@ const login = async () => {
                         <label class="text-gray-600 mb-2 block">
                             Adresse e-mail <span class="text-primary">*</span>
                         </label>
-                        <input type="email" v-model="form.email" class="input-box" placeholder="example@mail.com">
+                        <input type="email" v-model="form.email" class="input-box" placeholder="example@mail.com" required>
                     </div>
                     <div>
                         <label class="text-gray-600 mb-2 block">Mot de passe <span class="text-primary">*</span></label>
-                        <input type="password" v-model="form.password" class="input-box" placeholder="tapez votre mot de passe">
+                        <input type="password" v-model="form.password" class="input-box" placeholder="tapez votre mot de passe" required>
                     </div>
                 </div>
                 <!-- <div class="flex items-center justify-between mt-6">
