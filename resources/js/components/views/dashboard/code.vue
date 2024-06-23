@@ -7,22 +7,23 @@
                 <button type="button"
                         @click="showModal = true"
                         class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 my-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
-                    <p class="text-sm font-medium leading-none text-white">Ajouter un code</p>
+                    <span class="text-sm font-medium leading-none text-white">Ajouter un code</span>
                 </button>
             </div>
-            <table id="dataTable" class="display" style="width:100%">
-                <thead>
-                <tr>
-                    <th class="px-4 py-2">Nom</th>
-                    <th class="px-4 py-2">Pourcentage</th>
-                    <th class="px-4 py-2">Commercial</th>
-                    <th class="px-4 py-2">Email</th>
-                    <th class="px-4 py-2">Téléphone</th>
-                    <th class="px-4 py-2">Ajouté le</th>
-                    <th class="px-4 py-2">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
+            <div class="">
+                <table id="dataTable" class="display" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th class="px-4 py-2">Nom</th>
+                        <th class="px-4 py-2">Pourcentage</th>
+                        <th class="px-4 py-2">Commercial</th>
+                        <th class="px-4 py-2">Email</th>
+                        <th class="px-4 py-2">Téléphone</th>
+                        <th class="px-4 py-2">Ajouté le</th>
+                        <th class="px-4 py-2">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
                     <template v-if="codes && codes.length">
                         <tr v-for="code in codes" :key="code.id">
                             <td class="border px-4 py-2">
@@ -59,9 +60,10 @@
                             </td>
                         </tr>
                     </template>
-                <!-- Add more rows as needed -->
-                </tbody>
-            </table>
+                    <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <!-- Modal: créer catégorie -->

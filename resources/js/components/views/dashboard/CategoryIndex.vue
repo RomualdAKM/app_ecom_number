@@ -7,7 +7,7 @@
                 <button type="button"
                         @click="showModal = true"
                         class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 my-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
-                    <p class="text-sm font-medium leading-none text-white">Ajouter une catégorie</p>
+                    <span class="text-sm font-medium leading-none text-white">Ajouter une catégorie</span>
                 </button>
             </div>
             <table id="dataTable" class="display" style="width:100%">

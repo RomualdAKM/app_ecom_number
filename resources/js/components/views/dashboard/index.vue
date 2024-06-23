@@ -41,9 +41,6 @@ import Copyright from "../components/Copyright.vue";
     </div>
     <!-- dashboard wrapper end -->
 
-    <Footer />
-
-    <Copyright />
 </template>
 
 <style scoped>

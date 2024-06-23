@@ -57,7 +57,7 @@ const filterProducts = async () => {
     <!-- breadcrum -->
     <div class="container py-4 flex justify-between">
         <div class="flex gap-3 items-center">
-            <a href="/" class="text-primary text-base">
+            <a href="/" class="text-secondary text-base">
                 <i class="fas fa-home"></i>
             </a>
             <span class="text-sm text-gray-400"><i class="fas fa-chevron-right"></i></span>
@@ -77,7 +77,7 @@ const filterProducts = async () => {
             <!-- sorting -->
             <div class="mb-4 flex items-center">
                 <button @click="showFilter=!showFilter"
-                class="bg-primary border border-primary text-white px-10 py-3 font-medium rounded uppercase hover:bg-transparent hover:text-primary transition lg:hidden text-sm mr-3 focus:outline-none">
+                class="bg-green-900 border border-green-900 text-white px-10 py-3 font-medium rounded uppercase hover:bg-transparent hover:text-primary transition lg:hidden text-sm mr-3 focus:outline-none">
                 Filtre
                 </button>
                 <form action="" id="">
@@ -107,8 +107,6 @@ const filterProducts = async () => {
         </div>
         <!-- products end -->
     </div>
-    <!-- shop wrapper end -->
-    <Copyright />
     <!-- mobile menubar -->
     <MobileMenubar />
     <!-- mobile menu end -->
