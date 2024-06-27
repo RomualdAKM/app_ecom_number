@@ -61,7 +61,7 @@ const filterProducts = async () => {
                 <i class="fas fa-home"></i>
             </a>
             <span class="text-sm text-gray-400"><i class="fas fa-chevron-right"></i></span>
-            <p class="text-gray-600 font-medium">Les produits de la catégorie {{ props.name }}</p>
+            <p class="text-gray-600 font-medium">Les produits  du pays {{ props.name }}</p>
         </div>
     </div>
     <!-- breadcrum end -->

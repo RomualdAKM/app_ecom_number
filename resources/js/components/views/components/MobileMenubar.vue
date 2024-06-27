@@ -1,21 +1,37 @@
 <script setup>
-import { useShoppingStore } from './../../../stores/pinia.js'
+import { ref, onMounted } from 'vue';
+import { useShoppingStore } from './../../../stores/pinia.js';
 import useCateogiries from "../../../compositions/categories";
-import {onMounted} from "vue";
+import MobileSidebar from './MobileSidebar.vue';
 
 const { categories, getCategories } = useCateogiries();
 
-onMounted( () =>{
-    getCategories()
+onMounted(() => {
+    getCategories();
 });
+
 const data = useShoppingStore();
+
+// Réactive propriété pour la visibilité de la barre latérale
+const isSidebarVisible = ref(false);
+
+// Méthodes pour ouvrir et fermer la barre latérale
+const openSidebar = () => {
+    isSidebarVisible.value = true;
+};
+
+const closeSidebar = () => {
+    isSidebarVisible.value = false;
+};
 </script>
 
+
 <template>
+    <MobileSidebar v-if="isSidebarVisible" />
     <!-- mobile menubar -->
     <div
         class="fixed w-full border-t border-gray-200 shadow-sm bg-white py-3 bottom-0 left-0 flex justify-around items-start px-6 lg:hidden z-40">
-        <a href="javascript:void(0)" class="block text-center text-gray-700 hover:text-green-900 transition relative">
+        <a href="javascript:void(0)" class="block text-center text-gray-700 hover:text-green-900 transition relative" @click="openSidebar">
             <div class="text-2xl" id="menuBar">
                 <i class="fas fa-bars"></i>
             </div>
@@ -25,7 +41,7 @@ const data = useShoppingStore();
             <div class="text-2xl">
                 <i class="fas fa-list-ul"></i>
             </div>
-            <div class="text-xs leading-3">Toutes les categories</div>
+            <div class="text-xs leading-3">Tout les pays</div>
 
             <div class="absolute left-0 bottom-full w-full bg-white shadow-md py-3 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition duration-300 z-50 divide-y divide-gray-300 divide-dashed md:top-full">
                     <!-- single category -->
@@ -48,8 +64,38 @@ const data = useShoppingStore();
         </router-link>
     </div>
     <!-- mobile menu end -->
+
+    <!-- mobile sidebar menu -->
+    <div class="fixed left-0 top-0 w-full h-full z-50 bg-black bg-opacity-30 shadow" v-show="isSidebarVisible">
+        <div class="absolute left-0 top-0 w-72 h-full z-50 bg-white shadow">
+            <div @click="closeSidebar"
+                 class="text-gray-400 hover:text-primary text-lg absolute right-3 top-3 cursor-pointer">
+                <i class="fas fa-times"></i>
+            </div>
+            <!-- navlink -->
+            <h3 class="text-xl font-semibold text-gray-700 mb-1 font-roboto pl-4 pt-4">Menu</h3>
+            <div class="">
+                <router-link :to="{ name:'index' }" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
+                    Acceuil
+                </router-link>
+                <a href="/#about" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
+                    À Propos
+                </a>
+                <a href="#" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
+                    Contacts
+                </a>
+                <a href="/#faqs" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
+                    FAQs
+                </a>
+            </div>
+            <!-- navlinks end -->
+        </div>
+    </div>
+    <!-- mobile sidebar menu end -->
 </template>
-
 <style scoped>
-
+.hidden {
+  display: none;
+}
 </style>
+

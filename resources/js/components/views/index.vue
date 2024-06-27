@@ -13,7 +13,7 @@
     <!-- mobile menu end -->
 
     <!-- mobile sidebar menu -->
-        <MobileSidebar />
+        <!-- <MobileSidebar /> -->
     <!-- mobile sidebar menu end -->
 
     <!-- banner -->

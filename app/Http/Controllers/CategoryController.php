@@ -50,7 +50,7 @@ class CategoryController extends Controller
         $category->save();
 
         return response()->json([
-            'success' => 'Catégorie enregistrée avec succès.'
+            'success' => 'pays enregistrée avec succès.'
         ],200);
     }
 
@@ -94,14 +94,14 @@ class CategoryController extends Controller
         try {
             $category->delete();
         } catch (\Exception $e) {
-            Log::error('Erreur lors de la suppression de la catégorie : ' . $e->getMessage());
+            Log::error('Erreur lors de la suppression de la pays : ' . $e->getMessage());
             return response()->json([
-                'error' => 'Vous ne pouvez pas supprimez cette catégorie.'
+                'error' => 'Vous ne pouvez pas supprimez cette pays.'
             ],500);
         }
 
         return response()->json([
-            'success' => 'Catégorie supprimée avec succès.'
+            'success' => 'pays supprimée avec succès.'
         ],200);
     }
 }

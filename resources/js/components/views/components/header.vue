@@ -3,21 +3,17 @@ import { useShoppingStore } from './../../../stores/pinia.js'
 
 const data = useShoppingStore();
 
-
-
 </script>
 
 <template>
     <!-- header -->
-    <header class="py-4 shadow-sm bg-green-50 lg:bg-white">
+    <header class="shadow-sm bg-green-50 lg:bg-white">
         <div class="container flex items-center justify-between">
             <!-- logo -->
-            <a href="#" class="block w-32">
-                <img src="images/logo.jpg" alt="logo" class="w-full">
+            <a href="#" class="block w-24">
+                <img src="/images/logo.png" alt="logo" class="w-full">
             </a>
             <!-- logo end -->
-
-
 
             <!-- navicons -->
             <div class="space-x-4 flex items-center">

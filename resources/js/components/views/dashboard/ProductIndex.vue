@@ -91,7 +91,7 @@
                             <!-- single input -->
                             <div>
                                 <label for="category" class="text-gray-600 mb-2 block">
-                                    Catégorie
+                                    pays
                                 </label>
                                 <select id="category" v-model="form.category_id" class="input-box">
                                     <option v-for="category in categories" :key="category.id" :value="category.id">
@@ -196,7 +196,7 @@ const getProducts = async () => {
     products.value = response.data.products
 }
 
-// Récupérons les catégories
+// Récupérons les payss
 const getCategories = async () => {
     let response = await axios.get('/api/get_categories/')
     categories.value = response.data.categories

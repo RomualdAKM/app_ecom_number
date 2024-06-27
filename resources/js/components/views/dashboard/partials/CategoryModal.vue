@@ -28,7 +28,7 @@ const props = defineProps({
             <!-- Contenu du modal -->
             <div class="modal-content py-4 text-left px-6">
                 <h2 class="text-2xl font-semibold mb-4">
-                    {{ props.mode === 'create' ? 'Créer une catégorie' : 'Modifier une catégorie' }}
+                    {{ props.mode === 'create' ? 'Créer une pays' : 'Modifier une pays' }}
                 </h2>
 
                 <!-- CATEGORY FORM -->

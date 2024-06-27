@@ -3,11 +3,11 @@
         <!-- component -->
         <div class="overflow-x-auto">
             <div class="sm:flex items-center justify-between">
-                <p class="uppercase">Liste des catégories</p>
+                <p class="uppercase">Liste des payss</p>
                 <button type="button"
                         @click="showModal = true"
                         class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 my-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
-                    <span class="text-sm font-medium leading-none text-white">Ajouter une catégorie</span>
+                    <span class="text-sm font-medium leading-none text-white">Ajouter une pays</span>
                 </button>
             </div>
             <table id="dataTable" class="display" style="width:100%">
@@ -53,7 +53,7 @@
             </table>
         </div>
 
-        <!-- Modal: créer catégorie -->
+        <!-- Modal: créer pays -->
         <CategoryModal
             :showModal="showModal"
             :toggleModal="toggleModal"
@@ -90,11 +90,11 @@ const form = ref({
     name: '',
 })
 
-// Récupérer l'image de la catégorie
+// Récupérer l'image de la pays
 const  onImage = (e) => {
     form.value.image = e.target.files[0]
 }
-// Récupérer toutes les catégories
+// Récupérer toutes les payss
 const getCategories = async () =>{
     let response = await axios.get('/api/get_categories');
     categories.value = response.data.categories;
@@ -119,7 +119,7 @@ const toggleModal = () => {
     if (showModal.value === false) mode.value = 'create'
 };
 
-// Editer une catégorie
+// Editer une pays
 const editCategory = async (category) => {
     let response = await axios.get('/api/editCategory/' + category.id)
     category.value  = response.data.category
@@ -128,7 +128,7 @@ const editCategory = async (category) => {
     form.value = category
 }
 
-// Créer une catégorie
+// Créer une pays
 const storeCategory = async () => {
     let formData = new FormData()
     formData.append('name', form.value.name)
@@ -172,7 +172,7 @@ const storeCategory = async () => {
         });
 }
 
-// Mettre à jour une catégorie
+// Mettre à jour une pays
 const updateCategory = async () => {
     let formData = new FormData()
     formData.append('name', form.value.name)

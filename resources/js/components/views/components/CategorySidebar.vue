@@ -42,7 +42,7 @@ onMounted( () =>{
                         </RouterLink>
 
                         <div class="ml-auto text-gray-600 text-sm" >
-                            <!-- afficher Le nombre de produits dans la catégorie -->
+                            <!-- afficher Le nombre de produits dans le pays -->
                         </div>
                     </div>
                     <!-- single category end -->

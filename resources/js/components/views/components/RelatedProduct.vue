@@ -6,7 +6,7 @@ import {onMounted} from "vue";
 
 /**
  * Ce composant sera responsable de l'affichage des produits similaires.
- * Produits de la même catégories
+ * Produits de la même payss
  */
 const props = defineProps({
     categoryId: {

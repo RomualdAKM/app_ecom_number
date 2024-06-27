@@ -66,7 +66,7 @@
             </div>
         </div>
 
-        <!-- Modal: créer catégorie -->
+        <!-- Modal: créer pays -->
         <CodeModal
             :showModal="showModal"
             :toggleModal="toggleModal"

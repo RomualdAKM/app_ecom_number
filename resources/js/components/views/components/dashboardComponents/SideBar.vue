@@ -59,7 +59,7 @@ onMounted( async () => {
             <div class="space-y-1 pl-8" v-if="authUser.is_admin == 'admin' ">
                 <router-link :to="{name: 'dashboard-categories'}"
                    class="relative text-base font-medium capitalize hover:text-green-600 transition block">
-                    Catégories
+                    pays
                     <span class="absolute -left-8 top-0 text-base">
                         <i class="fas fa-list"></i>
                     </span>

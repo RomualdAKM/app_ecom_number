@@ -17,7 +17,7 @@ onMounted( async () => {
 <template>
     <!-- categories -->
     <div class="container py-16" id="acheterMaintenant">
-        <h2 class="text-2xl md:text-3xl font-medium text-green-800 uppercase mb-6">Achat par catégorie</h2>
+        <h2 class="text-2xl md:text-3xl font-medium text-green-800 uppercase mb-6">Achat par pays</h2>
         <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-3">
             <!-- single category -->
             <div v-for="category in categories" :key="category.id" class="relative group rounded-sm overflow-hidden" >
