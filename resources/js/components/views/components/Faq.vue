@@ -3,13 +3,11 @@ import { ref } from 'vue';
 
 // Questions et réponses avec états pour l'ouverture/fermeture
 const faqs = [
-  { question: 'Qu\'est-ce que votre service offre ?', answer: 'Notre service offre des fichiers de contacts professionnels de haute qualité.', open: ref(false) },
-  { question: 'Comment puis-je m\'inscrire ?', answer: 'Pour vous inscrire, cliquez sur le bouton "Inscription" en haut de la page.', open: ref(false) },
-  { question: 'Y a-t-il des frais d\'abonnement ?', answer: 'Oui, nous avons plusieurs forfaits adaptés à vos besoins.', open: ref(false) },
-  { question: 'Puis-je obtenir des fichiers de contacts personnalisés ?', answer: 'Bien sûr, nous proposons des options de personnalisation pour répondre à vos besoins spécifiques.', open: ref(false) },
+  { question: 'Qu\'est-ce que votre service offre ?', answer: 'Notre service offre des fichiers de contacts whatsapp professionnels de haute qualité.', open: ref(false) },
+  { question: 'Comment fonctionne notre service ?', answer: 'Pour utiliser notre service, vous devez d\'abord ajouter le pack de fichiers de contacts que vous souhaitez acheter au panier. Une fois que vous passez à la caisse, vous pouvez consulter Mes achats dans votre espace de compte. Dans l\'onglet "Mes achats", vous pouvez voir le téléchargement des fichiers de contacts après avoir terminé le processus de paiement. Une fois que vous avez téléchargé les fichiers, ils seront directement enregistrés sur votre appareil.', open: ref(false) },
+ 
   { question: 'Vos fichiers sont-ils à jour ?', answer: 'Nous mettons régulièrement à jour nos fichiers pour assurer la précision des contacts.', open: ref(false) },
-  { question: 'Quelle est votre politique de confidentialité ?', answer: 'Nous nous engageons à protéger votre confidentialité et à ne pas partager vos données avec des tiers.', open: ref(false) },
-  { question: 'Quelle est la politique de remboursement ?', answer: 'Nous offrons un remboursement complet dans les 30 jours suivant l\'achat, sous certaines conditions.', open: ref(false) },
+ 
   { question: 'Comment puis-je contacter le support ?', answer: 'Vous pouvez nous contacter via notre page de support ou par téléphone.', open: ref(false) },
   { question: 'Avez-vous des ressources pour aider à utiliser les fichiers de contacts ?', answer: 'Oui, nous proposons des guides et des tutoriels pour vous aider à utiliser nos fichiers efficacement.', open: ref(false) },
 ];

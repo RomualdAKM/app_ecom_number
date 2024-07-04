@@ -29,9 +29,9 @@ const data = useShoppingStore();
                                  class="text-white text-lg w-9 h-9 rounded-full bg-green-900 hover:bg-gray-800 transition flex items-center justify-center">
                         <i class="fas fa-search"></i>
                     </router-link>
-                    <a href="#"
+                    <a href="#" @click="data.addToCart(product)"
                        class="text-white text-lg w-9 h-9 rounded-full bg-green-900 hover:bg-gray-800 transition flex items-center justify-center">
-                        <i class="far fa-heart"></i>
+                        <i class="fas fa-shopping-bag"></i>
                     </a>
                 </div>
             </div>

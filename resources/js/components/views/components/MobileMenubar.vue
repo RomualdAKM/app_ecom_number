@@ -81,9 +81,9 @@ const closeSidebar = () => {
                 <a href="/#about" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
                     À Propos
                 </a>
-                <a href="#" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
+                <!-- <a href="#" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
                     Contacts
-                </a>
+                </a> -->
                 <a href="/#faqs" class="block px-4 py-2 font-medium transition hover:bg-gray-100">
                     FAQs
                 </a>

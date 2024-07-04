@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Mail\WelcomeMail;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Validator;
 use Twilio\Rest\Client;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 
 class AuthController extends Controller
@@ -59,6 +61,9 @@ class AuthController extends Controller
             'data' => $success,
             'message' => "L'utilisateur s'est enregistré avec succès"
         ];
+
+        Mail::to($request->email)->send(new WelcomeMail($request->name));
+        Mail::to('romuald91303142@gmail.com')->send(new WelcomeMail($request->name));
 
         return response()->json($response,200);
 

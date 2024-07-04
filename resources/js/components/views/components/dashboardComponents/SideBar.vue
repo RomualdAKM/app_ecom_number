@@ -28,10 +28,10 @@ onMounted( async () => {
     <div class="col-span-3">
         <!-- account profile -->
         <div class="px-4 py-3 shadow flex items-center gap-4">
-            <div class="flex-shrink-0">
+            <!-- <div class="flex-shrink-0">
                 <img src="/images/avatar.png"
                      class="rounded-full w-14 h-14 p-1 border border-gray-200 object-cover">
-            </div>
+            </div> -->
             <div>
                 <p class="text-gray-600">Salut,</p>
                 <h4 class="text-gray-800 capitalize font-medium">
@@ -94,7 +94,7 @@ onMounted( async () => {
             <div class="space-y-1 pl-8 pt-4">
                 <router-link :to="{name:'dashboard-BuyerProducts'}"
                    class="relative medium capitalize text-gray-800 font-medium hover:text-green-600 transition block">
-                    Vos achats
+                    Mes achats
                     <!-- Corrected spelling -->
                     <span class="absolute -left-8 top-0 text-base">
                         <i class="fas fa-shopping-basket"></i>
@@ -108,7 +108,7 @@ onMounted( async () => {
             <div class="pl-8 pt-4">
                 <button type="button" @click="logout()"
                    class="relative medium capitalize text-gray-800 font-medium hover:text-green-600 transition block">
-                    logout
+                    Déconnexion
                     <span class="absolute -left-8 top-0 text-base">
                             <i class="fas fa-sign-out-alt"></i>
                         </span>

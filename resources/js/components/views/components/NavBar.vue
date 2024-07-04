@@ -56,7 +56,7 @@ const logout = () => {
                     <div class="flex items-center space-x-6 text-base capitalize">
                         <router-link :to="{ name:'index' }" class="text-gray-200 hover:text-white transition">Accueil</router-link>
                         <a href="/#about" class="text-gray-200 hover:text-white transition">À Propos</a>
-                        <a href="#" class="text-gray-200 hover:text-white transition">Contacts</a>
+                        <!-- <a href="#" class="text-gray-200 hover:text-white transition">Contacts</a> -->
                         <a href="/#faqs" class="text-gray-200 hover:text-white transition">FAQs</a>
                     </div>
                     <div class="ml-auto justify-self-end">

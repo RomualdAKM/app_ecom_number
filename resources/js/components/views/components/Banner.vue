@@ -18,7 +18,7 @@
       </div>
       <div class="animate-slide-in-bottom delay-500">
         <p class="text-lg leading-8 mb-10">
-          Accédez à des milliers de contacts qualifiés en un clic.
+          Accédez à des milliers de contacts <strong class="text-green-400">whatsApp</strong>   qualifiés en un clic.
           <br class="hidden sm:block">
           Démarrez vos campagnes marketing ou élargissez votre réseau professionnel dès aujourd'hui.
         </p>

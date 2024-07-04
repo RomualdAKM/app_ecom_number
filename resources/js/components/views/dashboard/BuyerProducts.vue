@@ -4,7 +4,7 @@
         <div class="overflow-x-auto mt-4 mb-4">
             
             <div class="sm:flex mb-4 items-center justify-between">
-                <p class="uppercase">Vos achats</p>
+                <p class="uppercase">Mes achats</p>
                
             </div>
             <table id="dataTable" class="display" style="width:100%">
@@ -13,7 +13,7 @@
                     <th class="py-3 px-6 text-left">Photo</th>
                     <th class="py-3 px-6 text-left">Nom</th>
                     <th class="py-3 px-6 text-left">Prix</th>
-                    <!-- <th class="py-3 px-6 text-left">Date</th> -->
+                    <th class="py-3 px-6 text-left">Date</th>
                     <th class="py-3 px-6 text-center">Actions</th>
                 </tr>
                 </thead>
@@ -33,10 +33,14 @@
                     <td class="py-3 px-6 text-left whitespace-nowrap">
                         <span class="font-medium">{{ product.price }} F CFA</span>
                     </td>
+                    <td class="py-3 px-6 text-left whitespace-nowrap">
+                        <span class="font-medium">{{ formatDate(product.created_at) }} </span>
+                    </td>
                     <td class="py-3 px-6 text-center">
                         <div class="flex item-center justify-center">
-                            <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                            <div class="w-8 mr-2 transform hover:text-purple-500 hover:scale-110">
                                 <a :href="'/storage/' + product.file" class="flex items-center" target="_blank">
+                                   
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                                 </a>
 
@@ -63,7 +67,10 @@ const getBuyerProducts = async () =>{
     console.log('buyer products',products.value)
 }
 
-
+const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric" };
+    return new Date(dateString).toLocaleString("fr-FR", options);
+};
 onMounted( async () => {
   await  getBuyerProducts()
 

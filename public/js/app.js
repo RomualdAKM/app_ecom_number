@@ -17336,8 +17336,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var open = function open(price) {
       (0,kkiapay__WEBPACK_IMPORTED_MODULE_8__.openKkiapayWidget)({
         amount: price,
-        api_key: "0afd57b0a3d911ee8180352af354e3f1",
-        sandbox: true,
+        api_key: "e6d03d3d6591f35c24cc65ce4c05ef2cec26e9c5",
+        sandbox: false,
         phone: "61000000"
       });
     };
@@ -17611,31 +17611,15 @@ __webpack_require__.r(__webpack_exports__);
     __expose();
     var faqs = [{
       question: 'Qu\'est-ce que votre service offre ?',
-      answer: 'Notre service offre des fichiers de contacts professionnels de haute qualité.',
+      answer: 'Notre service offre des fichiers de contacts whatsapp professionnels de haute qualité.',
       open: (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false)
     }, {
-      question: 'Comment puis-je m\'inscrire ?',
-      answer: 'Pour vous inscrire, cliquez sur le bouton "Inscription" en haut de la page.',
-      open: (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false)
-    }, {
-      question: 'Y a-t-il des frais d\'abonnement ?',
-      answer: 'Oui, nous avons plusieurs forfaits adaptés à vos besoins.',
-      open: (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false)
-    }, {
-      question: 'Puis-je obtenir des fichiers de contacts personnalisés ?',
-      answer: 'Bien sûr, nous proposons des options de personnalisation pour répondre à vos besoins spécifiques.',
+      question: 'Comment fonctionne notre service ?',
+      answer: 'Pour utiliser notre service, vous devez d\'abord ajouter le pack de fichiers de contacts que vous souhaitez acheter au panier. Une fois que vous passez à la caisse, vous pouvez consulter Mes achats dans votre espace de compte. Dans l\'onglet "Mes achats", vous pouvez voir le téléchargement des fichiers de contacts après avoir terminé le processus de paiement. Une fois que vous avez téléchargé les fichiers, ils seront directement enregistrés sur votre appareil.',
       open: (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false)
     }, {
       question: 'Vos fichiers sont-ils à jour ?',
       answer: 'Nous mettons régulièrement à jour nos fichiers pour assurer la précision des contacts.',
-      open: (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false)
-    }, {
-      question: 'Quelle est votre politique de confidentialité ?',
-      answer: 'Nous nous engageons à protéger votre confidentialité et à ne pas partager vos données avec des tiers.',
-      open: (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false)
-    }, {
-      question: 'Quelle est la politique de remboursement ?',
-      answer: 'Nous offrons un remboursement complet dans les 30 jours suivant l\'achat, sous certaines conditions.',
       open: (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false)
     }, {
       question: 'Comment puis-je contacter le support ?',
@@ -18179,6 +18163,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return _ref2.apply(this, arguments);
       };
     }();
+    var formatDate = function formatDate(dateString) {
+      var options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric"
+      };
+      return new Date(dateString).toLocaleString("fr-FR", options);
+    };
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
       return _regeneratorRuntime().wrap(function _callee2$(_context2) {
         while (1) switch (_context2.prev = _context2.next) {
@@ -18194,6 +18188,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var __returned__ = {
       products: products,
       getBuyerProducts: getBuyerProducts,
+      formatDate: formatDate,
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
       onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted
     };
@@ -19983,7 +19978,7 @@ __webpack_require__.r(__webpack_exports__);
 var _withScopeId = function _withScopeId(n) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-2f0f6eee"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
 };
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"relative overflow-hidden\" data-v-2f0f6eee><!-- Background Image --><div class=\"absolute inset-0 bg-cover bg-no-repeat bg-center animate-zoom-in\" style=\"background-image:url(&#39;images/banner.png&#39;);\" data-v-2f0f6eee></div><!-- Content Overlay with Fade-In Animation --><div class=\"relative z-10 py-40 text-center text-white bg-black bg-opacity-50 flex flex-col items-center justify-center animate-fade-in\" data-v-2f0f6eee><!-- Banner Content with Slide-In Animation --><div class=\"animate-slide-in-bottom\" data-v-2f0f6eee><h2 class=\"xl:text-6xl md:text-3xl text-2xl font-bold mb-6\" data-v-2f0f6eee> Développez votre Réseau <br class=\"hidden sm:block\" data-v-2f0f6eee>Instantanément ! </h2></div><div class=\"animate-slide-in-bottom delay-500\" data-v-2f0f6eee><p class=\"text-lg leading-8 mb-10\" data-v-2f0f6eee> Accédez à des milliers de contacts qualifiés en un clic. <br class=\"hidden sm:block\" data-v-2f0f6eee> Démarrez vos campagnes marketing ou élargissez votre réseau professionnel dès aujourd&#39;hui. </p></div><!-- Call to Action Button with Hover Effect --><div class=\"animate-fade-in delay-1000\" data-v-2f0f6eee><a href=\"#acheterMaintenant\" style=\"background-color:green;\" class=\"bg-primary border border-danger text-success px-10 py-4 font-medium rounded-full uppercase transition-transform hover:scale-105 duration-500 ease-in-out\" data-v-2f0f6eee> ACHETER MAINTENANT </a></div></div><!-- Banner Section End --></div>", 1);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"relative overflow-hidden\" data-v-2f0f6eee><!-- Background Image --><div class=\"absolute inset-0 bg-cover bg-no-repeat bg-center animate-zoom-in\" style=\"background-image:url(&#39;images/banner.png&#39;);\" data-v-2f0f6eee></div><!-- Content Overlay with Fade-In Animation --><div class=\"relative z-10 py-40 text-center text-white bg-black bg-opacity-50 flex flex-col items-center justify-center animate-fade-in\" data-v-2f0f6eee><!-- Banner Content with Slide-In Animation --><div class=\"animate-slide-in-bottom\" data-v-2f0f6eee><h2 class=\"xl:text-6xl md:text-3xl text-2xl font-bold mb-6\" data-v-2f0f6eee> Développez votre Réseau <br class=\"hidden sm:block\" data-v-2f0f6eee>Instantanément ! </h2></div><div class=\"animate-slide-in-bottom delay-500\" data-v-2f0f6eee><p class=\"text-lg leading-8 mb-10\" data-v-2f0f6eee> Accédez à des milliers de contacts <strong class=\"text-green-400\" data-v-2f0f6eee>whatsApp</strong> qualifiés en un clic. <br class=\"hidden sm:block\" data-v-2f0f6eee> Démarrez vos campagnes marketing ou élargissez votre réseau professionnel dès aujourd&#39;hui. </p></div><!-- Call to Action Button with Hover Effect --><div class=\"animate-fade-in delay-1000\" data-v-2f0f6eee><a href=\"#acheterMaintenant\" style=\"background-color:green;\" class=\"bg-primary border border-danger text-success px-10 py-4 font-medium rounded-full uppercase transition-transform hover:scale-105 duration-500 ease-in-out\" data-v-2f0f6eee> ACHETER MAINTENANT </a></div></div><!-- Banner Section End --></div>", 1);
 function render(_ctx, _cache) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Banner Section with Scrolling Background "), _hoisted_1], 2112 /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */);
 }
@@ -20079,7 +20074,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.applyPromo($setup.cartTotal);
     }),
     "class": "bg-green-900 border text-white px-5 font-medium rounded-r-md"
-  }, "Apply")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, "Appliquer")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     onClick: _cache[2] || (_cache[2] = function ($event) {
       return $setup.open($setup.cartTotal);
@@ -20109,7 +20104,7 @@ var _hoisted_1 = {
 };
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "text-2xl md:text-3xl font-medium text-green-800 uppercase mb-6"
-}, "Achat par pays", -1 /* HOISTED */);
+}, "PAYS", -1 /* HOISTED */);
 var _hoisted_3 = {
   "class": "grid lg:grid-cols-3 sm:grid-cols-2 gap-3"
 };
@@ -20122,8 +20117,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "relative group rounded-sm overflow-hidden"
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       src: category.image ? '/storage/' + category.image : 'images/category/category.jpg',
-      alt: "category",
-      "class": "w-full h-60 object-cover transition"
+      alt: "pays",
+      "class": "w-full h-40 object-cover transition"
     }, null, 8 /* PROPS */, _hoisted_4), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
       to: {
         name: 'category-products',
@@ -20463,12 +20458,6 @@ var _hoisted_19 = /*#__PURE__*/_withScopeId(function () {
 });
 var _hoisted_20 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#",
-    "class": "block px-4 py-2 font-medium transition hover:bg-gray-100"
-  }, " Contacts ", -1 /* HOISTED */);
-});
-var _hoisted_21 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "/#faqs",
     "class": "block px-4 py-2 font-medium transition hover:bg-gray-100"
   }, " FAQs ", -1 /* HOISTED */);
@@ -20518,7 +20507,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Acceuil ")];
     }),
     _: 1 /* STABLE */
-  }), _hoisted_19, _hoisted_20, _hoisted_21]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" navlinks end ")])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.isSidebarVisible]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" mobile sidebar menu end ")], 64 /* STABLE_FRAGMENT */);
+  }), _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a href=\"#\" class=\"block px-4 py-2 font-medium transition hover:bg-gray-100\">\r\n                    Contacts\r\n                </a> "), _hoisted_20]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" navlinks end ")])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.isSidebarVisible]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" mobile sidebar menu end ")], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -20560,10 +20549,6 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "block px-4 py-2 font-medium transition hover:bg-gray-100"
 }, " À Propos ", -1 /* HOISTED */);
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#",
-  "class": "block px-4 py-2 font-medium transition hover:bg-gray-100"
-}, " Contacts ", -1 /* HOISTED */);
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#faqs",
   "class": "block px-4 py-2 font-medium transition hover:bg-gray-100"
 }, " FAQs ", -1 /* HOISTED */);
@@ -20579,7 +20564,7 @@ function render(_ctx, _cache) {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Acceuil ")];
     }),
     _: 1 /* STABLE */
-  }), _hoisted_6, _hoisted_7, _hoisted_8]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" navlinks end ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" mobile sidebar menu end ")], 2112 /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */);
+  }), _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a href=\"#\" class=\"block px-4 py-2 font-medium transition hover:bg-gray-100\">\r\n                    Contacts\r\n                </a> "), _hoisted_7]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" navlinks end ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" mobile sidebar menu end ")], 2112 /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */);
 }
 
 /***/ }),
@@ -20634,14 +20619,10 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "text-gray-200 hover:text-white transition"
 }, "À Propos", -1 /* HOISTED */);
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#",
-  "class": "text-gray-200 hover:text-white transition"
-}, "Contacts", -1 /* HOISTED */);
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "/#faqs",
   "class": "text-gray-200 hover:text-white transition"
 }, "FAQs", -1 /* HOISTED */);
-var _hoisted_14 = {
+var _hoisted_13 = {
   "class": "ml-auto justify-self-end"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -20672,7 +20653,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Accueil")];
     }),
     _: 1 /* STABLE */
-  }), _hoisted_11, _hoisted_12, _hoisted_13]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [$setup.authUser.value != null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
+  }), _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a href=\"#\" class=\"text-gray-200 hover:text-white transition\">Contacts</a> "), _hoisted_12]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [$setup.authUser.value != null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
     key: 0,
     to: {
       name: 'login'
@@ -20750,30 +20731,29 @@ var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
     "class": "fas fa-search"
   }, null, -1 /* HOISTED */);
 });
-var _hoisted_6 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#",
-    "class": "text-white text-lg w-9 h-9 rounded-full bg-green-900 hover:bg-gray-800 transition flex items-center justify-center"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "far fa-heart"
-  })], -1 /* HOISTED */);
+var _hoisted_6 = ["onClick"];
+var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-shopping-bag"
+  }, null, -1 /* HOISTED */);
 });
-var _hoisted_7 = {
+var _hoisted_8 = [_hoisted_7];
+var _hoisted_9 = {
   "class": "pt-4 pb-3 px-4"
 };
-var _hoisted_8 = {
+var _hoisted_10 = {
   "class": "uppercase font-medium text-xl mb-2 text-gray-800 hover:text-green-900 transition"
 };
-var _hoisted_9 = {
+var _hoisted_11 = {
   "class": "flex items-baseline mb-1 space-x-2"
 };
-var _hoisted_10 = {
+var _hoisted_12 = {
   "class": "text-xl text-green-900 font-roboto font-semibold"
 };
-var _hoisted_11 = {
+var _hoisted_13 = {
   "class": "text-sm text-gray-400 font-roboto line-through"
 };
-var _hoisted_12 = ["onClick"];
+var _hoisted_14 = ["onClick"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" product wrapper "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" single product "), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.products, function (product) {
@@ -20792,19 +20772,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return [_hoisted_5];
       }),
       _: 2 /* DYNAMIC */
-    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"]), _hoisted_6])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" product image end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" product content "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+      href: "#",
+      onClick: function onClick($event) {
+        return $setup.data.addToCart(product);
+      },
+      "class": "text-white text-lg w-9 h-9 rounded-full bg-green-900 hover:bg-gray-800 transition flex items-center justify-center"
+    }, _hoisted_8, 8 /* PROPS */, _hoisted_6)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" product image end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" product content "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
       to: '/product/' + product.id
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.name), 1 /* TEXT */)];
+        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.name), 1 /* TEXT */)];
       }),
       _: 2 /* DYNAMIC */
-    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(parseFloat(product.price).toFixed(0)) + " F CFA", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.modifiedPrice(product.price)) + " F CFA", 1 /* TEXT */)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" product content end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" product button "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(parseFloat(product.price).toFixed(0)) + " F CFA", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.modifiedPrice(product.price)) + " F CFA", 1 /* TEXT */)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" product content end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" product button "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
       onClick: function onClick($event) {
         return $setup.data.addToCart(product);
       },
       "class": "block w-full py-1 text-center text-white bg-green-900 border border-green-900 rounded-b hover:bg-transparent hover:text-green-900 transition"
-    }, " Ajouter au panier ", 8 /* PROPS */, _hoisted_12), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" product button end ")]);
+    }, " Ajouter au panier ", 8 /* PROPS */, _hoisted_14), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" product button end ")]);
   }), 128 /* KEYED_FRAGMENT */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" single product end ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" product wrapper end ")], 2112 /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */);
 }
 
@@ -20853,7 +20839,7 @@ __webpack_require__.r(__webpack_exports__);
 var _withScopeId = function _withScopeId(n) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-26a58bbb"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
 };
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section class=\"py-16 bg-gray-100\" data-v-26a58bbb><div class=\"container mx-auto px-6 text-center\" data-v-26a58bbb><!-- Titre de la section --><h2 class=\"text-4xl font-bold text-green-800 mb-10\" data-v-26a58bbb>Pourquoi choisir nos fichiers de contacts ?</h2><!-- Liste des avantages --><div class=\"grid grid-cols-1 md:grid-cols-3 gap-8\" data-v-26a58bbb><!-- Avantage 1 --><div class=\"bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in\" data-v-26a58bbb><div class=\"mb-4\" data-v-26a58bbb><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" class=\"w-12 h-12 mx-auto text-primary\" data-v-26a58bbb><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8v4l3 3\" data-v-26a58bbb></path></svg></div><h3 class=\"text-xl font-semibold text-green-800\" data-v-26a58bbb>Trouver des prospects de qualité</h3><p class=\"text-gray-600 mt-2\" data-v-26a58bbb> Accédez à des listes de contacts triées sur le volet pour trouver des prospects qualifiés rapidement. </p></div><!-- Avantage 2 --><div class=\"bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in delay-200\" data-v-26a58bbb><div class=\"mb-4\" data-v-26a58bbb><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" class=\"w-12 h-12 mx-auto text-primary\" data-v-26a58bbb><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 4.8a7.2 7.2 0 110 14.4 7.2 7.2 0 010-14.4z\" data-v-26a58bbb></path></svg></div><h3 class=\"text-xl font-semibold text-green-800\" data-v-26a58bbb>Gagner du temps</h3><p class=\"text-gray-600 mt-2\" data-v-26a58bbb> Économisez des heures de recherche grâce à des fichiers de contacts prêts à l&#39;emploi. </p></div><!-- Avantage 3 --><div class=\"bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in delay-400\" data-v-26a58bbb><div class=\"mb-4\" data-v-26a58bbb><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" class=\"w-12 h-12 mx-auto text-primary\" data-v-26a58bbb><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 12l-3-3-3 3 3 3 3-3z\" data-v-26a58bbb></path></svg></div><h3 class=\"text-xl font-semibold text-green-800\" data-v-26a58bbb>Améliorer votre portée</h3><p class=\"text-gray-600 mt-2\" data-v-26a58bbb> Utilisez des contacts qualifiés pour augmenter votre portée marketing et toucher plus de clients potentiels. </p></div><!-- Avantage 1 --><div class=\"bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in\" data-v-26a58bbb><div class=\"mb-4\" data-v-26a58bbb><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" class=\"w-12 h-12 mx-auto text-primary\" data-v-26a58bbb><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 12h18M9 6l6 6\" data-v-26a58bbb></path></svg></div><h3 class=\"text-xl font-semibold text-green-800\" data-v-26a58bbb>Économie de Coût</h3><p class=\"text-gray-600 mt-2\" data-v-26a58bbb> L&#39;utilisation de fichiers de contacts prêts à l&#39;emploi réduit les coûts liés à la collecte de données et accélère vos campagnes marketing. </p></div><!-- Avantage 2 --><div class=\"bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in delay-200\" data-v-26a58bbb><div class=\"mb-4\" data-v-26a58bbb><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" class=\"w-12 h-12 mx-auto text-primary\" data-v-26a58bbb><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 4.8a7.2 7.2 0 110 14.4 7.2 7.2 0 010-14.4z\" data-v-26a58bbb></path></svg></div><h3 class=\"text-xl font-semibold text-green-800\" data-v-26a58bbb>Personnalisation</h3><p class=\"text-gray-600 mt-2\" data-v-26a58bbb> Les fichiers peuvent être adaptés à vos besoins spécifiques, avec des options de segmentation pour des campagnes plus ciblées. </p></div><!-- Avantage 3 --><div class=\"bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in delay-400\" data-v-26a58bbb><div class=\"mb-4\" data-v-26a58bbb><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" class=\"w-12 h-12 mx-auto text-primary\" data-v-26a58bbb><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 12l-3-3-3 3 3 3 3-3z\" data-v-26a58bbb></path></svg></div><h3 class=\"text-xl font-semibold text-green-800\" data-v-26a58bbb>Résultats Rapides</h3><p class=\"text-gray-600 mt-2\" data-v-26a58bbb> Avec des contacts qualifiés, obtenez des résultats rapides et efficaces dans vos campagnes marketing. </p></div></div></div></section>", 1);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section class=\"py-16 bg-gray-100\" data-v-26a58bbb><div class=\"container mx-auto px-6 text-center\" data-v-26a58bbb><!-- Titre de la section --><h2 class=\"text-4xl font-bold text-center text-green-800 mb-10\" data-v-26a58bbb>Pourquoi choisir nos fichiers de contacts ?</h2><!-- Liste des avantages --><div class=\"grid grid-cols-1 md:grid-cols-3 gap-8\" data-v-26a58bbb><!-- Avantage 1 --><div class=\"bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in\" data-v-26a58bbb><div class=\"mb-4\" data-v-26a58bbb><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" class=\"w-12 h-12 mx-auto text-primary\" data-v-26a58bbb><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8v4l3 3\" data-v-26a58bbb></path></svg></div><h3 class=\"text-xl font-semibold text-green-800\" data-v-26a58bbb>Trouver des prospects de qualité</h3><p class=\"text-gray-600 mt-2\" data-v-26a58bbb> Accédez à des listes de contacts triées sur le volet pour trouver des prospects qualifiés rapidement. </p></div><!-- Avantage 2 --><div class=\"bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in delay-200\" data-v-26a58bbb><div class=\"mb-4\" data-v-26a58bbb><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" class=\"w-12 h-12 mx-auto text-primary\" data-v-26a58bbb><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 4.8a7.2 7.2 0 110 14.4 7.2 7.2 0 010-14.4z\" data-v-26a58bbb></path></svg></div><h3 class=\"text-xl font-semibold text-green-800\" data-v-26a58bbb>Gagner du temps</h3><p class=\"text-gray-600 mt-2\" data-v-26a58bbb> Économisez des heures de recherche grâce à des fichiers de contacts prêts à l&#39;emploi. </p></div><!-- Avantage 3 --><div class=\"bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in delay-400\" data-v-26a58bbb><div class=\"mb-4\" data-v-26a58bbb><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" class=\"w-12 h-12 mx-auto text-primary\" data-v-26a58bbb><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 12l-3-3-3 3 3 3 3-3z\" data-v-26a58bbb></path></svg></div><h3 class=\"text-xl font-semibold text-green-800\" data-v-26a58bbb>Améliorer votre portée</h3><p class=\"text-gray-600 mt-2\" data-v-26a58bbb> Utilisez des contacts qualifiés pour augmenter votre portée marketing et toucher plus de clients potentiels. </p></div><!-- Avantage 1 --><div class=\"bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in\" data-v-26a58bbb><div class=\"mb-4\" data-v-26a58bbb><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" class=\"w-12 h-12 mx-auto text-primary\" data-v-26a58bbb><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 12h18M9 6l6 6\" data-v-26a58bbb></path></svg></div><h3 class=\"text-xl font-semibold text-green-800\" data-v-26a58bbb>Économie de Coût</h3><p class=\"text-gray-600 mt-2\" data-v-26a58bbb> L&#39;utilisation de fichiers de contacts prêts à l&#39;emploi réduit les coûts liés à la collecte de données et accélère vos campagnes marketing. </p></div><!-- Avantage 2 --><div class=\"bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in delay-200\" data-v-26a58bbb><div class=\"mb-4\" data-v-26a58bbb><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" class=\"w-12 h-12 mx-auto text-primary\" data-v-26a58bbb><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 4.8a7.2 7.2 0 110 14.4 7.2 7.2 0 010-14.4z\" data-v-26a58bbb></path></svg></div><h3 class=\"text-xl font-semibold text-green-800\" data-v-26a58bbb>Personnalisation</h3><p class=\"text-gray-600 mt-2\" data-v-26a58bbb> Les fichiers peuvent être adaptés à vos besoins spécifiques, avec des options de segmentation pour des campagnes plus ciblées. </p></div><!-- Avantage 3 --><div class=\"bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in delay-400\" data-v-26a58bbb><div class=\"mb-4\" data-v-26a58bbb><svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" class=\"w-12 h-12 mx-auto text-primary\" data-v-26a58bbb><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 12l-3-3-3 3 3 3 3-3z\" data-v-26a58bbb></path></svg></div><h3 class=\"text-xl font-semibold text-green-800\" data-v-26a58bbb>Résultats Rapides</h3><p class=\"text-gray-600 mt-2\" data-v-26a58bbb> Avec des contacts qualifiés, obtenez des résultats rapides et efficaces dans vos campagnes marketing. </p></div></div></div></section>", 1);
 function render(_ctx, _cache) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Section Pourquoi choisir nos fichiers de contacts "), _hoisted_1], 2112 /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */);
 }
@@ -20901,131 +20887,125 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "px-4 py-3 shadow flex items-center gap-4"
 };
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex-shrink-0"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "/images/avatar.png",
-  "class": "rounded-full w-14 h-14 p-1 border border-gray-200 object-cover"
-})], -1 /* HOISTED */);
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-gray-600"
 }, "Salut,", -1 /* HOISTED */);
-var _hoisted_5 = {
+var _hoisted_4 = {
   "class": "text-gray-800 capitalize font-medium"
 };
-var _hoisted_6 = {
+var _hoisted_5 = {
   "class": "mt-6 bg-white shadow rounded p-4 divide-y divide-gray-200 space-y-4 text-gray-600"
 };
-var _hoisted_7 = {
+var _hoisted_6 = {
   "class": "space-y-1 pl-8"
 };
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "absolute -left-8 top-0 text-base"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fas fa-user-cog"
 })], -1 /* HOISTED */);
-var _hoisted_9 = {
+var _hoisted_8 = {
   key: 0,
   "class": "space-y-1 pl-8"
 };
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "absolute -left-8 top-0 text-base"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fas fa-list"
 })], -1 /* HOISTED */);
-var _hoisted_11 = {
+var _hoisted_10 = {
   key: 1,
   "class": "space-y-1 pl-8 pt-4"
 };
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "absolute -left-8 top-0 text-base"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fas fa-shopping-cart"
 })], -1 /* HOISTED */);
-var _hoisted_13 = {
+var _hoisted_12 = {
   key: 2,
   "class": "space-y-1 pl-8 pt-4"
 };
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "absolute -left-8 top-0 text-base"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fas fa-tag"
 })], -1 /* HOISTED */);
-var _hoisted_15 = {
+var _hoisted_14 = {
   "class": "space-y-1 pl-8 pt-4"
 };
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "absolute -left-8 top-0 text-base"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fas fa-shopping-basket"
 })], -1 /* HOISTED */);
-var _hoisted_17 = {
+var _hoisted_16 = {
   "class": "pl-8 pt-4"
 };
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "absolute -left-8 top-0 text-base"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fas fa-sign-out-alt"
 })], -1 /* HOISTED */);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" sidebar "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" account profile "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.authUser.name), 1 /* TEXT */)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" account profile end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Dashboard links "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Profil single link "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" sidebar "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" account profile "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flex-shrink-0\">\r\n                <img src=\"/images/avatar.png\"\r\n                     class=\"rounded-full w-14 h-14 p-1 border border-gray-200 object-cover\">\r\n            </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.authUser.name), 1 /* TEXT */)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" account profile end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Dashboard links "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Profil single link "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
       name: 'dashboard-profil'
     },
     "class": "relative text-base font-medium capitalize hover:text-green-600 transition block"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Profil "), _hoisted_8];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Profil "), _hoisted_7];
     }),
     _: 1 /* STABLE */
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Profil single link end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Category single link "), $setup.authUser.is_admin == 'admin' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Profil single link end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Category single link "), $setup.authUser.is_admin == 'admin' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
       name: 'dashboard-categories'
     },
     "class": "relative text-base font-medium capitalize hover:text-green-600 transition block"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" pays "), _hoisted_10];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" pays "), _hoisted_9];
     }),
     _: 1 /* STABLE */
-  })])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Category single link end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Product single link "), $setup.authUser.is_admin == 'admin' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  })])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Category single link end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Product single link "), $setup.authUser.is_admin == 'admin' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
       name: 'dashboard-products'
     },
     "class": "relative medium capitalize text-gray-800 font-medium hover:text-green-600 transition block"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Produits "), _hoisted_12];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Produits "), _hoisted_11];
     }),
     _: 1 /* STABLE */
-  })])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Product single link end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Code Promo single link "), $setup.authUser.is_admin == 'admin' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  })])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Product single link end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Code Promo single link "), $setup.authUser.is_admin == 'admin' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
       name: 'dashboard-code'
     },
     "class": "relative medium capitalize text-gray-800 font-medium hover:text-green-600 transition block"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Codes Promo "), _hoisted_14];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Codes Promo "), _hoisted_13];
     }),
     _: 1 /* STABLE */
-  })])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Code Promo single link end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Buyer products  single link "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  })])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Code Promo single link end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Buyer products  single link "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
       name: 'dashboard-BuyerProducts'
     },
     "class": "relative medium capitalize text-gray-800 font-medium hover:text-green-600 transition block"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Vos achats "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Corrected spelling "), _hoisted_16];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Mes achats "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Corrected spelling "), _hoisted_15];
     }),
     _: 1 /* STABLE */
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Buyer products  single link end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" single link end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" single link "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Buyer products  single link end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" single link end "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" single link "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $setup.logout();
     }),
     "class": "relative medium capitalize text-gray-800 font-medium hover:text-green-600 transition block"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" logout "), _hoisted_18])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" single link end ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Dashboard links end ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" sidebar end ")], 2112 /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */);
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Déconnexion "), _hoisted_17])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" single link end ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Dashboard links end ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" sidebar end ")], 2112 /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */);
 }
 
 /***/ }),
@@ -21127,7 +21107,7 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "sm:flex mb-4 items-center justify-between"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "uppercase"
-}, "Vos achats")], -1 /* HOISTED */);
+}, "Mes achats")], -1 /* HOISTED */);
 var _hoisted_4 = {
   id: "dataTable",
   "class": "display",
@@ -21143,7 +21123,9 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "py-3 px-6 text-left"
 }, "Nom"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "py-3 px-6 text-left"
-}, "Prix"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <th class=\"py-3 px-6 text-left\">Date</th> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+}, "Prix"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "py-3 px-6 text-left"
+}, "Date"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "py-3 px-6 text-center"
 }, "Actions")])], -1 /* HOISTED */);
 var _hoisted_6 = {
@@ -21172,16 +21154,22 @@ var _hoisted_14 = {
   "class": "font-medium"
 };
 var _hoisted_15 = {
-  "class": "py-3 px-6 text-center"
+  "class": "py-3 px-6 text-left whitespace-nowrap"
 };
 var _hoisted_16 = {
-  "class": "flex item-center justify-center"
+  "class": "font-medium"
 };
 var _hoisted_17 = {
-  "class": "w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
+  "class": "py-3 px-6 text-center"
 };
-var _hoisted_18 = ["href"];
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_18 = {
+  "class": "flex item-center justify-center"
+};
+var _hoisted_19 = {
+  "class": "w-8 mr-2 transform hover:text-purple-500 hover:scale-110"
+};
+var _hoisted_20 = ["href"];
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   width: "32",
   height: "32",
@@ -21202,7 +21190,7 @@ var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   x2: "12",
   y2: "3"
 })], -1 /* HOISTED */);
-var _hoisted_20 = [_hoisted_19];
+var _hoisted_22 = [_hoisted_21];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" component "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_6, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.products, function (product) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
@@ -21212,11 +21200,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "w-12 h-12 rounded-full",
       src: '/storage/' + product.hover_image,
       alt: product.name
-    }, null, 8 /* PROPS */, _hoisted_10)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.name), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.price) + " F CFA", 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    }, null, 8 /* PROPS */, _hoisted_10)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.name), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.price) + " F CFA", 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.formatDate(product.created_at)), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
       href: '/storage/' + product.file,
       "class": "flex items-center",
       target: "_blank"
-    }, _hoisted_20, 8 /* PROPS */, _hoisted_18)])])])]);
+    }, _hoisted_22, 8 /* PROPS */, _hoisted_20)])])])]);
   }), 128 /* KEYED_FRAGMENT */))])])])]);
 }
 

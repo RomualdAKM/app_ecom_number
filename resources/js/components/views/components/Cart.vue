@@ -55,8 +55,8 @@ const successHandler = async () => {
 const open = (price) => {
   openKkiapayWidget({
     amount: price,
-    api_key: "0afd57b0a3d911ee8180352af354e3f1",
-    sandbox: true,
+    api_key: "e6d03d3d6591f35c24cc65ce4c05ef2cec26e9c5",
+    sandbox: false,
     phone: "61000000",
   });
 };
@@ -141,7 +141,7 @@ onBeforeUnmount(() => {
         </div>
         <div class="flex mb-5" v-if="showCodePromoSection">
           <input type="text" v-model="formCode" placeholder="Coupon" class="pl-4 w-full border border-r-0 border-green-900 py-2 px-3 rounded-l-md" />
-          <button type="button" @click="applyPromo(cartTotal)" class="bg-green-900 border text-white px-5 font-medium rounded-r-md">Apply</button>
+          <button type="button" @click="applyPromo(cartTotal)" class="bg-green-900 border text-white px-5 font-medium rounded-r-md">Appliquer</button>
         </div>
         <button type="button" @click="open(cartTotal)" class="bg-green-900 text-white px-4 py-3 font-medium rounded-md">Payez Maintenant</button>
       </div>

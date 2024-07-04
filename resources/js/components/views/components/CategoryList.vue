@@ -17,11 +17,11 @@ onMounted( async () => {
 <template>
     <!-- categories -->
     <div class="container py-16" id="acheterMaintenant">
-        <h2 class="text-2xl md:text-3xl font-medium text-green-800 uppercase mb-6">Achat par pays</h2>
+        <h2 class="text-2xl md:text-3xl font-medium text-green-800 uppercase mb-6">PAYS</h2>
         <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-3">
             <!-- single category -->
             <div v-for="category in categories" :key="category.id" class="relative group rounded-sm overflow-hidden" >
-                <img :src="category.image ? '/storage/' + category.image : 'images/category/category.jpg'" alt="category" class="w-full h-60 object-cover transition" />
+                <img :src="category.image ? '/storage/' + category.image : 'images/category/category.jpg'" alt="pays" class="w-full h-40 object-cover transition" />
                 <router-link :to="{name: 'category-products', params:{name: category.name} }" class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 flex items-center justify-center text-xl text-white
                     font-roboto font-medium tracking-wide transition">
                     {{ category.name }}

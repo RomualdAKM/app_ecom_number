@@ -6,7 +6,7 @@
   <section class="py-16 bg-gray-100">
     <div class="container mx-auto px-6 text-center">
       <!-- Titre de la section -->
-      <h2 class="text-4xl font-bold text-green-800 mb-10">Pourquoi choisir nos fichiers de contacts ?</h2>
+      <h2 class="text-4xl font-bold text-center text-green-800 mb-10">Pourquoi choisir nos fichiers de contacts ?</h2>
       
       <!-- Liste des avantages -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
