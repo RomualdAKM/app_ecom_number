@@ -73,42 +73,71 @@ class ProductController extends Controller
             'file' => 'required',
             'hover_image' => 'required|mimes:png,jpg,jpeg',
         ]);
+        
+        $product = new Product();
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->category_id = $request->category_id;
 
-        try {
-            $product = new Product();
-            $product->name = $request->name;
-            $product->description = $request->description;
-            $product->price = $request->price;
-            $product->category_id = $request->category_id;
-
-            //upload de hover_image
-            if ($request->hasFile('hover_image')) {
-                $hoverImage = $request->file('hover_image');
-                $hoverImageName= time() . '_' . $hoverImage->getClientOriginalName();
-                $hoverImagePath = $hoverImage->storeAs('uploads/hoverImages', $hoverImageName, 'public');
-                $product->hover_image = $hoverImagePath;
-            }
-
-            // upload de file
-            if ($request->hasFile('file')) {
-                $file = $request->file('file');
-                $fileName= time() . '_' . $file->getClientOriginalName();
-                $filePath = $file->storeAs('uploads/files', $fileName, 'public');
-                $product->file = $filePath;
-            }
-
-
-            $product->save();
-
-            return response()->json([
-                'success' => 'Produit ajouté avec succès.'
-            ],200);
-        } catch (\Throwable $th){
-            Log::error('Store Product error : '. $th->getMessage());
-            return response()->json([
-                'error' => 'Une erreur s\'est produite , réessayer.'
-            ],500);
+        //upload de hover_image
+        if ($request->hasFile('hover_image')) {
+            $hoverImage = $request->file('hover_image');
+            $hoverImageName= time() . '_' . $hoverImage->getClientOriginalName();
+            $hoverImagePath = $hoverImage->storeAs('uploads/hoverImages', $hoverImageName, 'public');
+            $product->hover_image = $hoverImagePath;
         }
+
+        // upload de file
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileName= time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs('uploads/files', $fileName, 'public');
+            $product->file = $filePath;
+        }
+
+
+        $product->save();
+
+        return response()->json([
+            'success' => 'Produit ajouté avec succès.'
+        ],200);
+
+        // try {
+        //     $product = new Product();
+        //     $product->name = $request->name;
+        //     $product->description = $request->description;
+        //     $product->price = $request->price;
+        //     $product->category_id = $request->category_id;
+
+            
+        //     if ($request->hasFile('hover_image')) {
+        //         $hoverImage = $request->file('hover_image');
+        //         $hoverImageName= time() . '_' . $hoverImage->getClientOriginalName();
+        //         $hoverImagePath = $hoverImage->storeAs('uploads/hoverImages', $hoverImageName, 'public');
+        //         $product->hover_image = $hoverImagePath;
+        //     }
+
+           
+        //     if ($request->hasFile('file')) {
+        //         $file = $request->file('file');
+        //         $fileName= time() . '_' . $file->getClientOriginalName();
+        //         $filePath = $file->storeAs('uploads/files', $fileName, 'public');
+        //         $product->file = $filePath;
+        //     }
+
+
+        //     $product->save();
+
+        //     return response()->json([
+        //         'success' => 'Produit ajouté avec succès.'
+        //     ],200);
+        // } catch (\Throwable $th){
+        //     Log::error('Store Product error : '. $th->getMessage());
+        //     return response()->json([
+        //         'error' => 'Une erreur s\'est produite , réessayer.'
+        //     ],500);
+        // }
     }
 
     public function update(Request $request, $id){
