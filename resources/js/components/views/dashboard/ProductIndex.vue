@@ -231,8 +231,8 @@ const storeProduct = async () => {
     let formData = formDataFunc()
     await axios.post('/api/storeProduct', formData)
     .then((response) => {
-        // getProducts()
-        // toggleModal()
+        getProducts()
+        toggleModal()
         if (response.data.success){
             Swal.fire({
                 position: 'top-end',
