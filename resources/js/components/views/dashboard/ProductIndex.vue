@@ -229,7 +229,8 @@ const formDataFunc = () => {
 // Stocker le produit
 const storeProduct = async () => {
     let formData = formDataFunc()
-    await axios.post('/api/storeProduct', formData).then((response) => {
+    await axios.post('/api/storeProduct', formData)
+    .then((response) => {
         // getProducts()
         // toggleModal()
         if (response.data.success){

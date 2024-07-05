@@ -60,9 +60,9 @@ class ProductController extends Controller
         ]);
     }
 
-    /**
-     * @throws ValidationException
-     */
+    // /**
+    //  * @throws ValidationException
+    //  */
     public function store(Request $request){
         //dd($request->all());
         $request->validate([
@@ -103,6 +103,7 @@ class ProductController extends Controller
             return response()->json([
                 'success' => 'Produit ajouté avec succès.'
             ],200);
+
         } catch (\Throwable $th){
             Log::error('Store Product error : '. $th->getMessage());
             return response()->json([
