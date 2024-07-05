@@ -18627,7 +18627,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 0:
               formData = formDataFunc();
               _context3.next = 3;
-              return axios.post('/api/storeProduct/', formData).then(function (response) {
+              return axios.post('/api/storeProduct', formData).then(function (response) {
                 // getProducts()
                 // toggleModal()
                 if (response.data.success) {
