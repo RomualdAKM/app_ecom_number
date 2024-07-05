@@ -18628,8 +18628,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               formData = formDataFunc();
               _context3.next = 3;
               return axios.post('/api/storeProduct/', formData).then(function (response) {
-                getProducts();
-                toggleModal();
+                // getProducts()
+                // toggleModal()
                 if (response.data.success) {
                   Swal.fire({
                     position: 'top-end',
