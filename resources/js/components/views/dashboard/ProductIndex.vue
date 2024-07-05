@@ -192,13 +192,13 @@ const toggleModal = () => {
 
 // Récupérons les produits
 const getProducts = async () => {
-    let response = await axios.get('/api/get_products/')
+    let response = await axios.get('/api/get_products')
     products.value = response.data.products
 }
 
 // Récupérons les payss
 const getCategories = async () => {
-    let response = await axios.get('/api/get_categories/')
+    let response = await axios.get('/api/get_categories')
     categories.value = response.data.categories
 }
 
