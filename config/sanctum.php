@@ -19,10 +19,17 @@ return [
 
     'stateful' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', sprintf(
         '%s%s',
-        'localhost,localhost:3000,127.0.0.1,127.0.0.1:8000,contactshop.store,::1',
+        'localhost,localhost:3000,127.0.0.1,127.0.0.1:8000,::1,contactshop.store',
         Sanctum::currentApplicationUrlWithPort(),
-        env('APP_URL') ? ','.parse_url(env('APP_URL'), PHP_URL_HOST) : ''
+        // env('APP_URL') ? ','.parse_url(env('APP_URL'), PHP_URL_HOST) : ''
     ))),
+
+    // 'stateful' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', sprintf(
+    //     '%s%s',
+    //     'localhost,localhost:3000,127.0.0.1,127.0.0.1:8000,127.0.0.1:3000,::1gedact.fga-numerik.fr,gedact.fga-numerik.fr',
+    //     Sanctum::currentApplicationUrlWithPort()
+    // ))),
+
 
     /*
     |--------------------------------------------------------------------------
