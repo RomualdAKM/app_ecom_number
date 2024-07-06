@@ -47,6 +47,15 @@
             color: #4CAF50;
             font-weight: bold;
         }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -54,22 +63,17 @@
     <div class="container">
         <h2>Félicitations, {{ $full_name }}!</h2>
         <p>
-            Nous avons le plaisir de vous informer que votre code promotionnel <span class="highlight">{{ $code }}</span> a été utilisé avec succès par <span class="highlight">{{ Auth::user()->name }}</span>.
+            Nous avons le plaisir de vous informer que vous êtes dès maintenant partenaire de <a href="https://contactshop.store">Contact-Shop</a>. Votre code promotionnel est <span class="highlight">{{ $code }}</span>.
         </p>
         <p>
-            Grâce à cette transaction, vous encaissez la somme de <span class="highlight">{{ number_format($total - ($total * $percentage / 100), 2, ',', ' ') }} F CFA</span>.
-        </p>
-        <p>
-            Nous vous remercions pour votre engagement et votre fidélité. Nous sommes ravis de vous compter parmi nos partenaires les plus précieux et nous espérons continuer à vous offrir le meilleur service possible.
+            À chaque fois que votre code sera utilisé pour un achat sur <a href="https://contactshop.store">Contact-Shop</a>, vous encaisserez <span class="highlight">{{ $percentage }}%</span> des gains.
         </p>
         <p>
             Si vous avez des questions ou besoin d'assistance, n'hésitez pas à contacter notre service client. Nous sommes toujours là pour vous aider.
         </p>
-
         <p>
-            Accédez au site <a href="https://contactshop.store">Contact-Shop</a>.
+            Accédez au site <a href="https://contactshop.store">Contact-Shop</a> pour plus d'informations.
         </p>
-
         <p class="signature">
             L'équipe Contact Shop
         </p>

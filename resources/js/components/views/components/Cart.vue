@@ -57,7 +57,7 @@ const open = (price) => {
     amount: price,
     api_key: "e6d03d3d6591f35c24cc65ce4c05ef2cec26e9c5",
     sandbox: false,
-    phone: "61000000",
+    // phone: "61000000",
   });
 };
 

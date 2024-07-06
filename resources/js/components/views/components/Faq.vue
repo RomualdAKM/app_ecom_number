@@ -4,11 +4,24 @@ import { ref } from 'vue';
 // Questions et réponses avec états pour l'ouverture/fermeture
 const faqs = [
   { question: 'Qu\'est-ce que votre service offre ?', answer: 'Notre service offre des fichiers de contacts whatsapp professionnels de haute qualité.', open: ref(false) },
-  { question: 'Comment fonctionne notre service ?', answer: 'Pour utiliser notre service, vous devez d\'abord ajouter le pack de fichiers de contacts que vous souhaitez acheter au panier. Une fois que vous passez à la caisse, vous pouvez consulter Mes achats dans votre espace de compte. Dans l\'onglet "Mes achats", vous pouvez voir le téléchargement des fichiers de contacts après avoir terminé le processus de paiement. Une fois que vous avez téléchargé les fichiers, ils seront directement enregistrés sur votre appareil.', open: ref(false) },
- 
+  {
+  question: 'Comment ça fonctionne ?',
+  answer: `
+    <p>Pour acheter et télécharger vos fichiers de contacts, suivez ces étapes :</p>
+    <ol class="list-decimal ml-6">
+      <li class="mb-2">Ajoutez le pack de fichiers de contacts que vous souhaitez acheter à votre panier.</li>
+      <li class="mb-2">Passez à la caisse et complétez le processus de paiement sécurisé.</li>
+      <li class="mb-2">Accédez à votre espace de compte et cliquez sur "Mes achats".</li>
+      <li class="mb-2">Dans l'onglet "Mes achats", vous pourrez télécharger vos fichiers de contacts.</li>
+      <li class="mb-2">Une fois le téléchargement terminé, les fichiers seront directement enregistrés sur votre appareil.</li>
+    </ol>
+  `,
+  open: ref(false)
+},
+
   { question: 'Vos fichiers sont-ils à jour ?', answer: 'Nous mettons régulièrement à jour nos fichiers pour assurer la précision des contacts.', open: ref(false) },
  
-  { question: 'Comment puis-je contacter le support ?', answer: 'Vous pouvez nous contacter via notre page de support ou par téléphone.', open: ref(false) },
+  { question: 'Comment puis-je contacter le support ?', answer: 'Vous pouvez nous contacter via : equipe@contactshop.store', open: ref(false) },
   { question: 'Avez-vous des ressources pour aider à utiliser les fichiers de contacts ?', answer: 'Oui, nous proposons des guides et des tutoriels pour vous aider à utiliser nos fichiers efficacement.', open: ref(false) },
 ];
 
@@ -49,8 +62,8 @@ const toggleFaq = (faq) => {
             </div>
             <!-- Affichage conditionnel de la réponse -->
             <transition name="slide-fade" mode="out-in">
-              <div v-if="faq.open.value" class="mt-4 text-gray-600">
-                {{ faq.answer }}
+              <div v-if="faq.open.value" v-html="faq.answer" class="mt-4 text-gray-600">
+            
               </div>
             </transition>
           </div>

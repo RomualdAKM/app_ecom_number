@@ -10,7 +10,7 @@ const data = useShoppingStore();
     <header class="shadow-sm bg-green-50 lg:bg-white">
         <div class="container flex items-center justify-between">
             <!-- logo -->
-            <a href="#" class="block w-24">
+            <a href="/" class="block w-24">
                 <img src="/images/logo.png" alt="logo" class="w-full">
             </a>
             <!-- logo end -->
@@ -27,7 +27,7 @@ const data = useShoppingStore();
                     </div>
                     <div class="text-xs leading-3">Panier</div>
                 </router-link>
-                <router-link :to="{ name: 'dashboard'}" class="block text-center text-gray-700 hover:text-primary transition">
+                <router-link :to="{ name: 'dashboard-BuyerProducts'}" class="block text-center text-gray-700 hover:text-primary transition">
                     <div class="text-2xl">
                         <i class="far fa-user"></i>
                     </div>

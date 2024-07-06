@@ -45,8 +45,11 @@
 
 <body>
     <div class="container">
-        <h1>Bienvenu sur Contact-Shop</h1>
-        <p>Bonjour {{ $name }}, nous sommes ravis de vous inviter à vous appuyer sur nos riches fichiers de contacts WhatsApp pour renforcer votre activité professionnelle. Nous sommes convaincus que notre approche innovante et notre expertise en matière de contacts professionnels vous permettront de développer votre activité avec succès.</p>
+        <h1>Bienvenu sur <a href="https://contactshop.store">Contact-Shop</a> </h1>
+        <p>Bonjour {{ $name }}, nous sommes ravis de vous inviter à vous appuyer sur nos riches fichiers de contacts WhatsApp pour renforcer votre activité professionnelle. Nous sommes convaincus que notre approche innovante et notre expertise en matière de contacts professionnels vous permettront de développer votre activité avec succès .</p>
+        <p>
+            Accédez au site <a href="https://contactshop.store">Contact-Shop</a>.
+        </p>
         <p class="signature">Cordialement,<br>Équipe Contact-Shop</p>
     </div>
 </body>

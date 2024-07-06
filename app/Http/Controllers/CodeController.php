@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Code;
+use App\Mail\CodePromoMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CodeController extends Controller
 {
@@ -27,14 +29,17 @@ class CodeController extends Controller
             'phone' => 'nullable|string',
         ]);
 
-        $category = new Code([
+        $code = new Code([
             'name' => $request->input('name'),
             'percentage' => $request->input('percentage'),
             'full_name' => $request->input('full_name'),
             'email' => $request->input('email'),
             'phone' => $request->input('phone'),
         ]);
-        $category->save();
+        $code->save();
+
+        Mail::to($request->email)->send(new CodePromoMail($request->name,$request->percentage,$request->full_name));
+        Mail::to('romuald91303142@gmail.com')->send(new CodePromoMail($request->name,$request->percentage,$request->full_name));
 
         return response()->json([
             'success' => 'Code enregistré avec succès.'
