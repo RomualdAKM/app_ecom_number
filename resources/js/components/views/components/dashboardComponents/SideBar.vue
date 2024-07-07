@@ -1,26 +1,11 @@
 <script setup>
 import {ref,onMounted}  from 'vue'
 import router from "./../../../../router/index.js"
+import {useAuthStore} from "../../../../stores/authStore";
 const authUser = ref({})
+const authStore = useAuthStore()
 
-const getInfoAuthUser = async () =>{
-    let response = await axios.get('/api/getAuthUser');
-    authUser.value = response.data.data;
-    console.log('authUser',authUser.value)
-}
-
-const logout = () => {
-  sessionStorage.removeItem("token");
-
-   router.push("/");
-};
-
-onMounted( async () => {
-  await  getInfoAuthUser()
-
-})
-
-
+authUser.value = authStore.authUser
 </script>
 
 <template>
@@ -106,7 +91,7 @@ onMounted( async () => {
             <!-- single link end -->
             <!-- single link -->
             <div class="pl-8 pt-4">
-                <button type="button" @click="logout()"
+                <button type="button" @click="authStore.logout()"
                    class="relative medium capitalize text-gray-800 font-medium hover:text-green-600 transition block">
                     logout
                     <span class="absolute -left-8 top-0 text-base">

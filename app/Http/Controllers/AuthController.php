@@ -72,7 +72,7 @@ class AuthController extends Controller
             ])) {
                  $user = $request->user();
                 $success['token'] = $user->createToken('MyApp')->plainTextToken;
-                $success['name'] = $user->name;
+                $success['user'] = $user;
 
                 $response = [
                     'success' => true,

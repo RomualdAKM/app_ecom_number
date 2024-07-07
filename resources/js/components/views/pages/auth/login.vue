@@ -2,6 +2,9 @@
 
 import { reactive, ref } from "vue";
 import router from "./../../../../router/index.js"
+import {useAuthStore} from "../../../../stores/authStore";
+
+const authStore = useAuthStore()
 
 let form = reactive({
     email: "",
@@ -14,6 +17,10 @@ const login = async () => {
     await axios.post("api/login", form).then((response) => {
         if (response.data.success) {
             sessionStorage.setItem("token", response.data.data.token);
+            sessionStorage.setItem("user", response.data.data.user);
+            authStore.isAuthenticated = true
+            authStore.authUser = response.data.data.user
+            authStore.authToken = response.data.data.token
             router.push("/");
              toast.fire({
             icon: "success",

@@ -2,16 +2,17 @@
 import useCateogiries from "../../../compositions/categories";
 import {onMounted, ref} from "vue";
 import router from "../../../router/index.js"
+import {useAuthStore} from "../../../stores/authStore";
 
 const { categories, getCategories } = useCateogiries();
-const authUser = ref({});
-
+// const authUser = ref({});
+const authStore = useAuthStore()
 onMounted( async() =>{
     await getCategories();
-    await getInfoAuthUser();
+    // await getInfoAuthUser();
 });
 
-const getInfoAuthUser = async () => {
+/*const getInfoAuthUser = async () => {
     try {
         let response = await axios.get('/api/getAuthUser');
         authUser.value = response.data.data;
@@ -19,12 +20,12 @@ const getInfoAuthUser = async () => {
         console.error('Error fetching auth user info:', error);
         authUser.value = null; // Si une erreur survient, considérer l'utilisateur comme déconnecté
     }
-};
+};*/
 
-const logout = () => {
-    sessionStorage.removeItem("token");
-    router.push("/login");
-};
+// const logout = () => {
+//     sessionStorage.removeItem("token");
+//     router.push("/login");
+// };
 </script>
 
 <template>
@@ -60,10 +61,10 @@ const logout = () => {
                         <a href="#faqs" class="text-gray-200 hover:text-white transition">FAQs</a>
                     </div>
                     <div class="ml-auto justify-self-end">
-                        <router-link v-if="authUser.value != null" :to="{ name: 'login' }" class="text-gray-200 hover:text-white transition">
+                        <router-link v-if="!authStore.isAuthenticated" :to="{ name: 'login' }" class="text-gray-200 hover:text-white transition">
                             Connexion
                         </router-link>
-                        <button v-else @click="logout" class="text-gray-200 hover:text-white transition">
+                        <button v-else @click="authStore.logout()" class="text-gray-200 hover:text-white transition">
                             Déconnexion
                         </button>
                     </div>
